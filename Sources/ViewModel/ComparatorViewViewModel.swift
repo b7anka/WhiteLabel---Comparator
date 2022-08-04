@@ -10,11 +10,15 @@ import WhiteLabel___Utils
 
 public final class ComparatorViewViewModel: ObservableObject {
     
+    // MARK: - PUBLISHED PROPERTIES
+    @Published public var resetEvComponent: Bool
+    
+    // MARK: - PROPERTIEs
     public let languageManager: EVIOLanguage
     public var selectedEv: EVIOEv?
-    @Published public var resetEvComponent: Bool
     public let goToEvs: (() -> Void)?
     
+    // MARK: - INIT
     public init(goToEvs: (() -> Void)?) {
         self.goToEvs = goToEvs
         self.languageManager = EVIOLanguageManager.shared.language
@@ -22,6 +26,7 @@ public final class ComparatorViewViewModel: ObservableObject {
         self.resetEvComponent = false
     }
     
+    // MARK: - PUBLIC FUNCTIONS
     public func evSelected(_ ev: EVIOEv?) {
         self.selectedEv = ev
     }
