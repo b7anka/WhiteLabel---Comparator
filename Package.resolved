@@ -1,0 +1,176 @@
+{
+  "pins" : [
+    {
+      "identity" : "acarousel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/JWAutumn/ACarousel",
+      "state" : {
+        "branch" : "main",
+        "revision" : "807d859fb39ccaae2caf8ff60fb2ee1a5048f4ca"
+      }
+    },
+    {
+      "identity" : "availablehapticfeedback",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yonat/AvailableHapticFeedback",
+      "state" : {
+        "revision" : "f9ae6d54af1fb06fff0ddb16246091c6de22f989",
+        "version" : "1.0.2"
+      }
+    },
+    {
+      "identity" : "charts",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danielgindi/Charts.git",
+      "state" : {
+        "revision" : "66546404a6739173b8e436ab6bc1f2897cd08594",
+        "version" : "3.6.0"
+      }
+    },
+    {
+      "identity" : "cosmos",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/evgenyneu/Cosmos.git",
+      "state" : {
+        "revision" : "cce521e734d0090494bd4afab5fd2e2f2465c1af",
+        "version" : "23.0.0"
+      }
+    },
+    {
+      "identity" : "countrypickerview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kizitonwose/CountryPickerView.git",
+      "state" : {
+        "revision" : "6ecf22145d577411fb97c8c964df0fb5886f035f",
+        "version" : "3.3.0"
+      }
+    },
+    {
+      "identity" : "devicekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/devicekit/DeviceKit",
+      "state" : {
+        "revision" : "8e2432f99915c6aa03d73b50152bf64dc87d0813",
+        "version" : "4.6.1"
+      }
+    },
+    {
+      "identity" : "hyperconnectivity",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rwbutler/Hyperconnectivity",
+      "state" : {
+        "revision" : "c0dbcfb6c20e59599b5cdc14f151430866322a7e",
+        "version" : "1.1.1"
+      }
+    },
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "2231f92b5af71c78ad2c1450e583bf4a8713b951",
+        "version" : "7.3.1"
+      }
+    },
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios.git",
+      "state" : {
+        "revision" : "b04b773957e3e359730590c2e7c16d8c3874ec50",
+        "version" : "3.4.1"
+      }
+    },
+    {
+      "identity" : "marqueelabel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/cbpowell/MarqueeLabel",
+      "state" : {
+        "revision" : "f2c72a5f8568579dade6350dc26a482076d3d346",
+        "version" : "4.3.0"
+      }
+    },
+    {
+      "identity" : "mbswiftuifirstresponder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Mobilinked/MbSwiftUIFirstResponder",
+      "state" : {
+        "branch" : "main",
+        "revision" : "4eafce5e917742334183f9bde9ebeedbcc0b1651"
+      }
+    },
+    {
+      "identity" : "multislider",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yonat/MultiSlider",
+      "state" : {
+        "revision" : "ddfb9826f9cee32046a0a98f99f33e98fa4f5efb",
+        "version" : "1.12.3"
+      }
+    },
+    {
+      "identity" : "notificationbanner",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Daltron/NotificationBanner",
+      "state" : {
+        "revision" : "e856a462053daf80c7936056d64246983f3f4d14",
+        "version" : "3.1.0"
+      }
+    },
+    {
+      "identity" : "phonenumberkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marmelroy/PhoneNumberKit",
+      "state" : {
+        "revision" : "104a53d62c55aa5794faf30b29ccad319653b552",
+        "version" : "3.4.5"
+      }
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit",
+      "state" : {
+        "revision" : "f222cbdf325885926566172f6f5f06af95473158",
+        "version" : "5.6.0"
+      }
+    },
+    {
+      "identity" : "sweeterswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yonat/SweeterSwift",
+      "state" : {
+        "revision" : "74b3d19dc80158b2a87240d05894154a1ba7f2ef",
+        "version" : "1.2.1"
+      }
+    },
+    {
+      "identity" : "swiftdate",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/malcommac/SwiftDate.git",
+      "state" : {
+        "revision" : "6190d0cefff3013e77ed567e6b074f324e5c5bf5",
+        "version" : "6.3.1"
+      }
+    },
+    {
+      "identity" : "swiftlocation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/malcommac/SwiftLocation",
+      "state" : {
+        "revision" : "f8ec8e97095eb3a5312370ad94b921768217625f",
+        "version" : "5.1.0"
+      }
+    },
+    {
+      "identity" : "whitelabel---utils",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/b7anka/WhiteLabel---Utils",
+      "state" : {
+        "branch" : "main",
+        "revision" : "3cc1322384703ce8c3efc04f7ed33a73b0cf92f0"
+      }
+    }
+  ],
+  "version" : 2
+}
