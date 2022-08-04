@@ -13,8 +13,8 @@ public struct ComparatorView: View {
     @Environment(\.presentationMode) private var presentationMode
     @StateObject private var viewModel: ComparatorViewViewModel
     
-    public init() {
-        self._viewModel = StateObject(wrappedValue: ComparatorViewViewModel())
+    public init(goToEvs: (() -> Void)? = nil) {
+        self._viewModel = StateObject(wrappedValue: ComparatorViewViewModel(goToEvs: goToEvs))
     }
     
     public var body: some View {
@@ -27,7 +27,7 @@ public struct ComparatorView: View {
                 }
                 .padding(.horizontal, 34)
                 ScrollView(.vertical, showsIndicators: false) {
-                    EVIOHorizontalEvSelectionView(selectedEv: self.viewModel.selectedEv, resetComponent: self.$viewModel.resetEvComponent, completion: self.viewModel.evSelected)
+                    EVIOHorizontalEvSelectionView(selectedEv: self.viewModel.selectedEv, resetComponent: self.$viewModel.resetEvComponent, completion: self.viewModel.evSelected, popUpAction: self.viewModel.goToEvs)
                         .padding(.horizontal, 34)
                         .padding(.top, 10)
                 }
@@ -38,8 +38,8 @@ public struct ComparatorView: View {
     
 }
 
-struct ComparatorTabView_Previews: PreviewProvider {
-    static var previews: some View {
+public struct ComparatorTabView_Previews: PreviewProvider {
+    public static var previews: some View {
         ComparatorView()
     }
 }

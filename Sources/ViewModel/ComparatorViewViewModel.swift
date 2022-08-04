@@ -13,8 +13,10 @@ public final class ComparatorViewViewModel: ObservableObject {
     public let languageManager: EVIOLanguage
     public var selectedEv: EVIOEv?
     @Published public var resetEvComponent: Bool
+    public let goToEvs: (() -> Void)?
     
-    public init() {
+    public init(goToEvs: (() -> Void)?) {
+        self.goToEvs = goToEvs
         self.languageManager = EVIOLanguageManager.shared.language
         self.selectedEv = nil
         self.resetEvComponent = false
@@ -23,5 +25,6 @@ public final class ComparatorViewViewModel: ObservableObject {
     public func evSelected(_ ev: EVIOEv?) {
         self.selectedEv = ev
     }
+    
     
 }

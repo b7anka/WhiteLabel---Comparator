@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="9 6 32 41.848" width="32px" height="41.848px" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="a" x="0" y="0" width="50" height="59.847" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feFlood flood-opacity="0.251"/>
+      <feComposite operator="in" in2="b"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <style>.a{fill:#353841;}.b,.c{fill:#fff;}.c{fill-rule:evenodd;}.d{filter:url(#a);}</style>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 9, 6)">
+    <g transform="translate(0 0)">
+      <g transform="translate(0 0)">
+        <g class="d" transform="matrix(1, 0, 0, 1, -9, -6)">
+          <path class="a" d="M-108-54.207A15.9,15.9,0,0,0-124-70a15.9,15.9,0,0,0-16,15.793c0,10.265,16,26.055,16,26.055s16-15.79,16-26.055" transform="translate(149 76)"/>
+        </g>
+      </g>
+    </g>
+    <g transform="translate(4.774 4.145)">
+      <path class="b" d="M903.348,255.814v.032a2.313,2.313,0,0,0,.743,1.671,6.935,6.935,0,0,1,2.09,5.059v.08c0,3.625-2.47,6.653-6.374,6.653a6.484,6.484,0,0,1-6.414-6.733v-.08a6.869,6.869,0,0,1,2.087-5.092,2.255,2.255,0,0,0,.745-1.649h0a2.2,2.2,0,0,0-3.586-1.708,10.888,10.888,0,0,0-4.066,8.529v.08a10.879,10.879,0,0,0,11.155,10.876A11,11,0,0,0,911,262.576v-.08a10.774,10.774,0,0,0-3.99-8.44A2.252,2.252,0,0,0,903.348,255.814Z" transform="translate(-888.573 -252.259)"/>
+      <path class="c" d="M1016.17,237.555a2.046,2.046,0,1,1,2.046,2.046,2.046,2.046,0,0,1-2.046-2.046" transform="translate(-1007.01 -235.509)"/>
+    </g>
+  </g>
+</svg>
