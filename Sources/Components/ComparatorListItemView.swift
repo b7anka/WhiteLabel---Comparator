@@ -34,52 +34,54 @@ public struct ComparatorListItemView: View {
     // MARK: - BODY
     public var body: some View {
         VStack(spacing: 10) {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(Color.primaryBackground)
-                .overlay(
+            VStack(spacing: .zero) {
+                VStack(spacing: 5) {
                     VStack(spacing: 5) {
-                        VStack(spacing: 5) {
-                            if self.item.charger == nil {
-                                Text(self.languageManager.comparatorChooseChargingPoint)
-                                    .modifier(EVIOReferencePlaceAddressModifier(color: .secondaryTextColor.opacity(0.5), lineLimit: 1, textAlignment: .leading))
-                            } else {
-                                EVIORating(isDisabled: true, didUpdateRating: { _ in })
-                            }
-                            Text(self.item.charger?.name ?? self.languageManager.comparatorChargingPoint)
-                                .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-                        } //: VSTACK
-                        .padding(5)
-                        if self.item.charger != nil {
-                            ZStack(alignment: .bottom) {
-                                Image(uiImage: self.image)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: nil, height: 122)
-                                    .onAppear {
-                                        self.getImage()
-                                    } //: IMAGE
-                                HStack(spacing: .zero) {
-                                    Spacer()
-                                    Button(action: {
-                                        self.feedbackGenerator.impactOccurred()
-                                        self.deleteAction(self.item)
-                                    }) {
-                                        Image(systemName: .trash)
-                                            .resizable()
-                                            .foregroundColor(.white)
-                                            .frame(width: 15, height: 15)
-                                    }
-                                } //: HSTACK
-                            } //: ZSTACK
+                        if self.item.charger == nil {
+                            Text(self.languageManager.comparatorChooseChargingPoint)
+                                .modifier(EVIOReferencePlaceAddressModifier(color: .secondaryTextColor.opacity(0.5), lineLimit: 1, textAlignment: .leading))
                         } else {
-                            Image(.comparatorAddChargerImage)
+                            EVIORating(isDisabled: true, didUpdateRating: { _ in })
+                        }
+                        Text(self.item.charger?.name ?? self.languageManager.comparatorChargingPoint)
+                            .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
+                    } //: VSTACK
+                    .padding(5)
+                    if self.item.charger != nil {
+                        ZStack(alignment: .bottom) {
+                            Image(uiImage: self.image)
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: nil, height: 122)
-                        }
-                    } //: VSTACK
-                ) //: RECTANGLE
-                .shadow(color: .fourthShadow, radius: 5, x: .zero, y: .zero)
+                                .onAppear {
+                                    self.getImage()
+                                } //: IMAGE
+                            HStack(spacing: .zero) {
+                                Spacer()
+                                Button(action: {
+                                    self.feedbackGenerator.impactOccurred()
+                                    self.deleteAction(self.item)
+                                }) {
+                                    Image(systemName: .trash)
+                                        .resizable()
+                                        .foregroundColor(.white)
+                                        .frame(width: 15, height: 15)
+                                }
+                            } //: HSTACK
+                        } //: ZSTACK
+                    } else {
+                        Image(.comparatorAddChargerImage)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: nil, height: 122)
+                    }
+                } //: VSTACK
+            } //: VSTACK
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.primaryBackground)
+            )
+            .shadow(color: .fourthShadow, radius: 5, x: .zero, y: .zero)
             if self.item.charger != nil {
                 VStack(alignment: .leading, spacing: 10) {
                     Button(action: {
