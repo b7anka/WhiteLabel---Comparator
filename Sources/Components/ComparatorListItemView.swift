@@ -41,7 +41,10 @@ public struct ComparatorListItemView: View {
                             Text(self.languageManager.comparatorChooseChargingPoint)
                                 .modifier(EVIOReferencePlaceAddressModifier(color: .secondaryTextColor.opacity(0.5), lineLimit: 1, textAlignment: .leading))
                         } else {
-                            EVIORating(rating: self.item.charger?.rating ?? .zero, starSize: .chargerSummaryAndDetailsRatingBarStarSize, starMargin: .chargerSummaryAndDetailsRatingBarStarMarging, isDisabled: true, size: .ratingStarSizeForChargerSummary, didUpdateRating: {_ in})
+                            HStack(spacing: .zero) {
+                                EVIORating(rating: self.item.charger?.rating ?? .zero, starSize: .chargerSummaryAndDetailsRatingBarStarSize, starMargin: .chargerSummaryAndDetailsRatingBarStarMarging, isDisabled: true, size: .ratingStarSizeForChargerSummary, didUpdateRating: {_ in})
+                                Spacer()
+                            }
                         }
                         Text(self.item.charger?.name ?? self.languageManager.comparatorChargingPoint)
                             .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
@@ -52,7 +55,6 @@ public struct ComparatorListItemView: View {
                             Image(uiImage: self.image)
                                 .resizable()
                                 .scaledToFill()
-                                .frame(minWidth: 121, idealWidth: 165, maxWidth: 180, minHeight: 122, idealHeight: 122, maxHeight: 122)
                                 .onAppear {
                                     self.getImage()
                                 } //: IMAGE
@@ -69,6 +71,7 @@ public struct ComparatorListItemView: View {
                                 }
                             } //: HSTACK
                         } //: ZSTACK
+                        .frame(minWidth: 121, idealWidth: 165, maxWidth: 180, minHeight: 122, idealHeight: 122, maxHeight: 122)
                     } else {
                         Image(.comparatorAddChargerImage)
                             .resizable()
