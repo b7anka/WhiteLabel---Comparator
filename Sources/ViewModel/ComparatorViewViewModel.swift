@@ -27,8 +27,8 @@ public final class ComparatorViewViewModel: ObservableObject {
         self.selectedEv = nil
         self.resetEvComponent = false
         self.columns  = [
-            GridItem(.flexible()),
-            GridItem(.flexible())
+            GridItem(.flexible(), alignment: .top),
+            GridItem(.flexible(), alignment: .top)
         ]
         self.chargers = [ComparatorItemModel.´default´, ComparatorItemModel(charger: nil), ComparatorItemModel(charger: nil), ComparatorItemModel(charger: nil), ComparatorItemModel(charger: nil)]
         #if DEBUG

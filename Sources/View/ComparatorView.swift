@@ -37,7 +37,7 @@ public struct ComparatorView: View {
                             .padding(.top, 10)
                         EVIOVerticalDivider()
                             .padding(.horizontal, 34)
-                        LazyHGrid(rows: self.viewModel.columns, alignment: .top, spacing: 10) {
+                        LazyVGrid(columns: self.viewModel.columns, spacing: 10) {
                             ForEach(self.viewModel.chargers) { charger in
                                 ComparatorListItemView(item: charger, showChargerDetailsAction: { _ in}, showTariffInfo: { _ in}, deleteAction: { _ in})
                             } //: LIST
