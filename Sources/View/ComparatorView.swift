@@ -31,17 +31,19 @@ public struct ComparatorView: View {
                 } //: BACK BUTTON COMPONENT
                 .padding(.horizontal, 34)
                 ScrollView(.vertical, showsIndicators: false) {
-                    EVIOHorizontalEvSelectionView(selectedEv: self.viewModel.selectedEv, resetComponent: self.$viewModel.resetEvComponent, completion: self.viewModel.evSelected, popUpAction: self.viewModel.goToEvs)
-                        .padding(.horizontal, 34)
-                        .padding(.top, 10)
-                    EVIOVerticalDivider()
-                        .padding(.horizontal)
-                    VStack(spacing: 10) {
-                        ForEach(self.viewModel.chargers) { charger in
-                            ComparatorListItemView(item: charger, showChargerDetailsAction: { _ in}, showTariffInfo: { _ in}, deleteAction: { _ in})
-                        }
-                    }
-                    .padding(.horizontal, 24)
+                    VStack(spacing: 20) {
+                        EVIOHorizontalEvSelectionView(selectedEv: self.viewModel.selectedEv, resetComponent: self.$viewModel.resetEvComponent, completion: self.viewModel.evSelected, popUpAction: self.viewModel.goToEvs)
+                            .padding(.horizontal, 34)
+                            .padding(.top, 10)
+                        EVIOVerticalDivider()
+                            .padding(.horizontal, 34)
+                        VStack(spacing: 10) {
+                            ForEach(self.viewModel.chargers) { charger in
+                                ComparatorListItemView(item: charger, showChargerDetailsAction: { _ in}, showTariffInfo: { _ in}, deleteAction: { _ in})
+                            } //: LIST
+                        } //: VSTACK
+                        .padding(.horizontal, 24)
+                    } //: VSTACK
                 } //: EV SELECTION VIEW
                 .padding(.bottom, 20)
             } //: SCROLLVIEW
