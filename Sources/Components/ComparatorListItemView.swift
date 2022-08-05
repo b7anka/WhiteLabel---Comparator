@@ -78,10 +78,10 @@ public struct ComparatorListItemView: View {
                 } //: VSTACK
             } //: VSTACK
             .background(
-                Color.red
+                Color.primaryBackground
             )
             .cornerRadius(10)
-            .shadow(color: .black, radius: 5, x: .zero, y: .zero)
+            .shadow(color: .gray.opacity(0.5), radius: 5, x: .zero, y: .zero)
             if self.item.charger != nil {
                 VStack(alignment: .leading, spacing: 10) {
                     Button(action: {
