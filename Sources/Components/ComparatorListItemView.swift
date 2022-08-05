@@ -52,7 +52,7 @@ public struct ComparatorListItemView: View {
                             Image(uiImage: self.image)
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 121, height: 122)
+                                .frame(minWidth: 121, idealWidth: 165, maxWidth: 180, minHeight: 122, idealHeight: 122, maxHeight: 122)
                                 .onAppear {
                                     self.getImage()
                                 } //: IMAGE
@@ -73,7 +73,7 @@ public struct ComparatorListItemView: View {
                         Image(.comparatorAddChargerImage)
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 121, height: 122)
+                            .frame(minWidth: 121, idealWidth: 165, maxWidth: 180, minHeight: 122, idealHeight: 122, maxHeight: 122)
                     }
                 } //: VSTACK
             } //: VSTACK
@@ -105,7 +105,6 @@ public struct ComparatorListItemView: View {
                 } //: VSTACK
             }
         } //: VSTACK
-        .frame(width: 121)
     }
     
     // MARK: - FUNCTIONS
