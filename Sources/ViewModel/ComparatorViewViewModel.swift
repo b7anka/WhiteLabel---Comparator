@@ -30,7 +30,7 @@ public final class ComparatorViewViewModel: ObservableObject {
             GridItem(.flexible()),
             GridItem(.flexible())
         ]
-        self.chargers = [ComparatorItemModel.´default´, ComparatorItemModel.´default´, ComparatorItemModel.´default´, ComparatorItemModel.´default´, ComparatorItemModel.´default´]
+        self.chargers = [ComparatorItemModel.´default´, ComparatorItemModel(charger: nil), ComparatorItemModel(charger: nil), ComparatorItemModel(charger: nil), ComparatorItemModel(charger: nil)]
     }
     
     // MARK: - PUBLIC FUNCTIONS

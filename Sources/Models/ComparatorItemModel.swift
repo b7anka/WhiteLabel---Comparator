@@ -28,9 +28,9 @@ public final class ComparatorItemModel: ObservableObject, Identifiable {
     }
     
     // MARK: - INIT
-    public init(charger: EVIOCharger?, isDefault: Bool = false) {
+    public init(id: UUID? = nil, charger: EVIOCharger?, isDefault: Bool = false) {
         self.isDefault = isDefault
-        self.id = UUID()
+        self.id = id ?? UUID()
         self.charger = charger
         self.totalCost = .empty
         self.averageCostPerKwh = .empty
