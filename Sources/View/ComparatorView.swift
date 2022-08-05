@@ -42,7 +42,7 @@ public struct ComparatorView: View {
                                 ComparatorListItemView(item: charger, showChargerDetailsAction: { _ in}, showTariffInfo: { _ in}, deleteAction: { _ in})
                             } //: LIST
                         } //: VSTACK
-                        .padding(.horizontal, 24)
+                        .padding(.horizontal, 34)
                     } //: VSTACK
                 } //: EV SELECTION VIEW
                 .padding(.bottom, 20)

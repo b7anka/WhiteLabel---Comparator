@@ -79,6 +79,7 @@ public struct ComparatorListItemView: View {
                         }
                     } //: VSTACK
                 ) //: RECTANGLE
+                .shadow(color: .fourthShadow, radius: 5, x: .zero, y: .zero)
             if self.item.charger != nil {
                 VStack(alignment: .leading, spacing: 10) {
                     Button(action: {
