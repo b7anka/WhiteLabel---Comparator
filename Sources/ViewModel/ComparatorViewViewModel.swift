@@ -18,6 +18,7 @@ public final class ComparatorViewViewModel: ObservableObject {
     public let languageManager: EVIOLanguage
     public var selectedEv: EVIOEv?
     public let goToEvs: (() -> Void)?
+    public let columns: [GridItem]
     
     // MARK: - INIT
     public init(goToEvs: (() -> Void)?) {
@@ -25,6 +26,10 @@ public final class ComparatorViewViewModel: ObservableObject {
         self.languageManager = EVIOLanguageManager.shared.language
         self.selectedEv = nil
         self.resetEvComponent = false
+        self.columns  = [
+            GridItem(.flexible()),
+            GridItem(.flexible())
+        ]
         self.chargers = [ComparatorItemModel.´default´]
     }
     
