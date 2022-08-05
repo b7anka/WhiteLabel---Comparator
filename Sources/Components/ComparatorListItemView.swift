@@ -105,7 +105,7 @@ public struct ComparatorListItemView: View {
                 } //: VSTACK
             }
         } //: VSTACK
-        .frame(minWidth: 121, idealWidth: 165, maxWidth: 80)
+        .frame(width: 121)
     }
     
     // MARK: - FUNCTIONS
