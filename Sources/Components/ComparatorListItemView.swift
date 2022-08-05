@@ -78,9 +78,9 @@ public struct ComparatorListItemView: View {
                 } //: VSTACK
             } //: VSTACK
             .background(
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.primaryBackground)
+                Color.primaryBackground
             )
+            .cornerRadius(10)
             .shadow(color: .fourthShadow, radius: 5, x: .zero, y: .zero)
             if self.item.charger != nil {
                 VStack(alignment: .leading, spacing: 10) {
