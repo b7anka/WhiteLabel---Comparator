@@ -43,10 +43,10 @@ public struct ComparatorView: View {
                             } //: LIST
                         } //: LAZYVGRID
                         .padding(.horizontal, 34)
+                        .padding(.bottom, 20)
                     } //: VSTACK
-                } //: EV SELECTION VIEW
-                .padding(.bottom, 20)
-            } //: SCROLLVIEW
+                } //: SCROLLVIEW
+            } //: VSTACK
         } //: ZSTACK
     }
     
