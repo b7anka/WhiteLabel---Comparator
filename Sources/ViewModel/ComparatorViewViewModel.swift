@@ -12,6 +12,7 @@ public final class ComparatorViewViewModel: ObservableObject {
     
     // MARK: - PUBLISHED PROPERTIES
     @Published public var resetEvComponent: Bool
+    @Published public var chargers: [ComparatorItemModel]
     
     // MARK: - PROPERTIEs
     public let languageManager: EVIOLanguage
@@ -24,6 +25,7 @@ public final class ComparatorViewViewModel: ObservableObject {
         self.languageManager = EVIOLanguageManager.shared.language
         self.selectedEv = nil
         self.resetEvComponent = false
+        self.chargers = [ComparatorItemModel.´default´]
     }
     
     // MARK: - PUBLIC FUNCTIONS

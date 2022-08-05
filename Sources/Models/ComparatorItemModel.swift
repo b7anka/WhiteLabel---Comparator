@@ -39,3 +39,9 @@ public final class ComparatorItemModel: ObservableObject, Identifiable {
     }
     
 }
+
+public extension ComparatorItemModel {
+    
+    static let ´default´: ComparatorItemModel = ComparatorItemModel(charger: nil, isDefault: true)
+    
+}

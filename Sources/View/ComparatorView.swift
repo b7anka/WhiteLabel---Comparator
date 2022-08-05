@@ -34,6 +34,14 @@ public struct ComparatorView: View {
                     EVIOHorizontalEvSelectionView(selectedEv: self.viewModel.selectedEv, resetComponent: self.$viewModel.resetEvComponent, completion: self.viewModel.evSelected, popUpAction: self.viewModel.goToEvs)
                         .padding(.horizontal, 34)
                         .padding(.top, 10)
+                    EVIOVerticalDivider()
+                        .padding(.horizontal)
+                    VStack(spacing: 10) {
+                        ForEach(self.viewModel.chargers) { charger in
+                            ComparatorListItemView(item: charger, showChargerDetailsAction: { _ in}, showTariffInfo: { _ in}, deleteAction: { _ in})
+                        }
+                    }
+                    .padding(.horizontal, 24)
                 } //: EV SELECTION VIEW
                 .padding(.bottom, 20)
             } //: SCROLLVIEW
@@ -42,9 +50,3 @@ public struct ComparatorView: View {
     
 }
 
-// MARK: - PREVIEW
-public struct ComparatorTabView_Previews: PreviewProvider {
-    public static var previews: some View {
-        ComparatorView()
-    }
-}
