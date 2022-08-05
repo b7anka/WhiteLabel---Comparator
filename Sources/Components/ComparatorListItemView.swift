@@ -41,7 +41,7 @@ public struct ComparatorListItemView: View {
                             Text(self.languageManager.comparatorChooseChargingPoint)
                                 .modifier(EVIOReferencePlaceAddressModifier(color: .secondaryTextColor.opacity(0.5), lineLimit: 1, textAlignment: .leading))
                         } else {
-                            EVIORating(isDisabled: true, didUpdateRating: { _ in })
+                            EVIORating(rating: self.item.charger?.rating ?? .zero, starSize: .chargerSummaryAndDetailsRatingBarStarSize, starMargin: .chargerSummaryAndDetailsRatingBarStarMarging, isDisabled: true, size: .ratingStarSizeForChargerSummary, didUpdateRating: {_ in})
                         }
                         Text(self.item.charger?.name ?? self.languageManager.comparatorChargingPoint)
                             .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
