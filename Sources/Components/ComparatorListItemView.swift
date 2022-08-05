@@ -51,7 +51,7 @@ public struct ComparatorListItemView: View {
                     } //: VSTACK
                     .padding(5)
                     if self.item.charger != nil {
-                        ZStack(alignment: .bottom) {
+                        ZStack {
                             Image(uiImage: self.image)
                                 .resizable()
                                 .scaledToFill()
