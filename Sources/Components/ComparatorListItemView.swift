@@ -78,7 +78,7 @@ public struct ComparatorListItemView: View {
                 } //: VSTACK
             } //: VSTACK
             .background(
-                Color.primaryBackground
+                Color.red
             )
             .cornerRadius(10)
             .shadow(color: .fourthShadow, radius: 5, x: .zero, y: .zero)
