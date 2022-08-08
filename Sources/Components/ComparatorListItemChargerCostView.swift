@@ -26,7 +26,7 @@ public struct ComparatorListItemChargerCostView: View {
     
     // MARK: - BODY
     public var body: some View {
-        HStack {
+        HStack(spacing: .zero) {
             VStack(alignment: .leading, spacing: 5) {
                 Button(action: {
                     self.feedbackGenerator.impactOccurred()
