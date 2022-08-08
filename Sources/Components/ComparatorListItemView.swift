@@ -29,7 +29,7 @@ public struct ComparatorListItemView: View {
         self.languageManager = EVIOLanguageManager.shared.language
     }
     
-    // MARK: - BODY
+    // MARK: - BODY 
     public var body: some View {
         VStack(spacing: 10) {
             ComparatorListItemChargerInfoView(item: self.item, deleteAction: self.deleteAction)
