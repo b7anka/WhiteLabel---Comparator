@@ -18,8 +18,6 @@ public struct ComparatorListItemView: View {
     private let showTariffInfo: ((EVIOCharger?) -> Void)
     private let deleteAction: ((ComparatorItemModel) -> Void)
     private let feedbackGenerator: UIImpactFeedbackGenerator
-    // MARK: - STATE PROPERTIES
-    @State private var image: UIImage = UIImage(named: .placeHolderForChargerDetailsImage)!
     
     // MARK: - INIT
     public init(item: ComparatorItemModel, showChargerDetailsAction: @escaping (EVIOCharger?) -> Void, showTariffInfo: @escaping (EVIOCharger?) -> Void, deleteAction: @escaping (ComparatorItemModel) -> Void) {
@@ -35,98 +33,30 @@ public struct ComparatorListItemView: View {
     public var body: some View {
         VStack(spacing: 10) {
             VStack(spacing: .zero) {
-                VStack(spacing: 5) {
-                    VStack(spacing: 5) {
-                        if self.item.charger == nil {
-                            Text(self.languageManager.comparatorChooseChargingPoint)
-                                .modifier(EVIOReferencePlaceAddressModifier(color: .secondaryTextColor.opacity(0.5), lineLimit: 1, textAlignment: .leading))
-                        } else {
-                            HStack(spacing: .zero) {
-                                EVIORating(rating: self.item.charger?.rating ?? .zero, starSize: .chargerSummaryAndDetailsRatingBarStarSize, starMargin: .chargerSummaryAndDetailsRatingBarStarMarging, isDisabled: true, size: .ratingStarSizeForChargerSummary, didUpdateRating: {_ in})
-                                Spacer()
-                            }
-                        }
-                        Text(self.item.charger?.name ?? self.languageManager.comparatorChargingPoint)
-                            .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-                    } //: VSTACK
-                    .padding(5)
-                    if self.item.charger != nil {
-                        ZStack {
-                            Image(uiImage: self.image)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(maxHeight: 122)
-                                .clipShape(Rectangle())
-                                .onAppear {
-                                    self.getImage()
-                                } //: IMAGE
-                            VStack(spacing: .zero) {
-                                Spacer()
-                                HStack(spacing: .zero) {
-                                    Spacer()
-                                    Button(action: {
-                                        self.feedbackGenerator.impactOccurred()
-                                        self.deleteAction(self.item)
-                                    }) {
-                                        Image(systemName: .trash)
-                                            .resizable()
-                                            .foregroundColor(.white)
-                                            .frame(width: 15, height: 15)
-                                    }
-                                }
-                                .padding(.horizontal, 15)
-                                .padding(.vertical, 15)
+                ComparatorListItemChargerInfoView(item: self.item, deleteAction: self.deleteAction)
+                if self.item.charger != nil {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Button(action: {
+                            self.feedbackGenerator.impactOccurred()
+                            self.showTariffInfo(self.item.charger)
+                        }) {
+                            HStack(spacing: 5) {
+                                Text(self.languageManager.comparatorTotalCost)
+                                    .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
+                                EVIOInformationIconView()
                             } //: HSTACK
-                        } //: ZSTACK
-                        .frame(minWidth: 121, idealWidth: 165, maxWidth: 180, minHeight: 122, idealHeight: 122, maxHeight: 122)
-                    } else {
-                        Image(.comparatorAddChargerImage)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(maxHeight: 122)
-                            .clipShape(Rectangle())
-                            .frame(minWidth: 121, idealWidth: 165, maxWidth: 180, minHeight: 122, idealHeight: 122, maxHeight: 122)
-                    }
-                } //: VSTACK
+                        } //: BUTTON
+                        Text("\(self.item.totalCost)€ \(self.languageManager.generalPlusVat)")
+                            .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
+                        ComparatorListItemInfoRowView(title: UOMS.kWh, value: self.item.totalPower)
+                        Text(self.languageManager.comparatorAverageCost)
+                            .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
+                        ComparatorListItemInfoRowView(title: "€/\(UOMS.kWh)", value: "\(self.item.averageCostPerKwh) €/\(UOMS.kWh) \(self.languageManager.generalPlusVat)")
+                        ComparatorListItemInfoRowView(title: "€/\(UOMS.min) \(self.languageManager.generalPlusVat)", value: "\(self.item.averageCostPerMinute) €/\(UOMS.min) \(self.languageManager.generalPlusVat)")
+                        
+                    } //: VSTACK
+                }
             } //: VSTACK
-            .background(
-                Color.primaryBackground
-            )
-            .cornerRadius(10)
-            .shadow(color: .gray.opacity(0.5), radius: 5, x: .zero, y: .zero)
-            if self.item.charger != nil {
-                VStack(alignment: .leading, spacing: 5) {
-                    Button(action: {
-                        self.feedbackGenerator.impactOccurred()
-                        self.showTariffInfo(self.item.charger)
-                    }) {
-                        HStack(spacing: 5) {
-                            Text(self.languageManager.comparatorTotalCost)
-                                .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-                            EVIOInformationIconView()
-                        } //: HSTACK
-                    } //: BUTTON
-                    Text("\(self.item.totalCost)€ \(self.languageManager.generalPlusVat)")
-                        .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-                    ComparatorListItemInfoRowView(title: UOMS.kWh, value: self.item.totalPower)
-                    Text(self.languageManager.comparatorAverageCost)
-                        .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-                    ComparatorListItemInfoRowView(title: "€/\(UOMS.kWh)", value: "\(self.item.averageCostPerKwh) €/\(UOMS.kWh) \(self.languageManager.generalPlusVat)")
-                    ComparatorListItemInfoRowView(title: "€/\(UOMS.min) \(self.languageManager.generalPlusVat)", value: "\(self.item.averageCostPerMinute) €/\(UOMS.min) \(self.languageManager.generalPlusVat)")
-                    
-                } //: VSTACK
-            }
-        } //: VSTACK
-    }
-    
-    // MARK: - FUNCTIONS
-    private func getImage() {
-        guard let parsedString: String = self.item.charger?.defaultImage?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url: URL = URL(string: parsedString) else { return }
-        KingfisherManager.shared.retrieveImage(with: url) { result in
-            if let image = try? result.get().image {
-                self.image = image
-            }
         }
     }
-    
 }
