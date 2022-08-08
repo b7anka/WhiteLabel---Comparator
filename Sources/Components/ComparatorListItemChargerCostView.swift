@@ -40,12 +40,10 @@ public struct ComparatorListItemChargerCostView: View {
                 } //: BUTTON
                 Text("\(self.item.totalCost)€ \(self.languageManager.generalPlusVat)")
                     .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-                    .background(Color.red)
                 ComparatorListItemInfoRowView(title: UOMS.kWh, value: self.item.totalPower)
                     .background(Color.red)
                 Text(self.languageManager.comparatorAverageCost)
                     .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-                    .background(Color.red)
                 ComparatorListItemInfoRowView(title: "€/\(UOMS.kWh)", value: "\(self.item.averageCostPerKwh) €/\(UOMS.kWh) \(self.languageManager.generalPlusVat)")
                 ComparatorListItemInfoRowView(title: "€/\(UOMS.min) \(self.languageManager.generalPlusVat)", value: "\(self.item.averageCostPerMinute) €/\(UOMS.min) \(self.languageManager.generalPlusVat)")
                 

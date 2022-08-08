@@ -32,10 +32,10 @@ public final class ComparatorItemModel: ObservableObject, Identifiable {
         self.isDefault = isDefault
         self.id = id ?? UUID()
         self.charger = charger
-        self.totalCost = .empty
-        self.averageCostPerKwh = .empty
-        self.totalPower = .empty
-        self.averageCostPerMinute = .empty
+        self.totalCost = .noValue
+        self.averageCostPerKwh = .noValue
+        self.totalPower = .noValue
+        self.averageCostPerMinute = .noValue
     }
     
 }
