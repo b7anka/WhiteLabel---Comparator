@@ -31,7 +31,7 @@ public struct ComparatorListItemView: View {
     
     // MARK: - BODY
     public var body: some View {
-        VStack(spacing: .zero) {
+        VStack(spacing: 10) {
             ComparatorListItemChargerInfoView(item: self.item, deleteAction: self.deleteAction)
             if self.item.charger != nil {
                 ComparatorListItemChargerCostView(item: self.item, showTariffInfo: self.showTariffInfo)
