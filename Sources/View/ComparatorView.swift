@@ -31,7 +31,7 @@ public struct ComparatorView: View {
                 } //: BACK BUTTON COMPONENT
                 .padding(.horizontal, 34)
                 ScrollView(.vertical, showsIndicators: false) {
-                    VStack(spacing: 20) {
+                    VStack(spacing: .zero) {
                         EVIOHorizontalEvSelectionView(selectedEv: self.viewModel.selectedEv, resetComponent: self.$viewModel.resetEvComponent, completion: self.viewModel.evSelected, popUpAction: self.viewModel.goToEvs)
                             .padding(.horizontal, 34)
                             .padding(.top, 10)
