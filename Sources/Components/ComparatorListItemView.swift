@@ -83,6 +83,8 @@ public struct ComparatorListItemView: View {
                         Image(.comparatorAddChargerImage)
                             .resizable()
                             .scaledToFill()
+                            .frame(maxHeight: 122)
+                            .clipShape(Rectangle())
                             .frame(minWidth: 121, idealWidth: 165, maxWidth: 180, minHeight: 122, idealHeight: 122, maxHeight: 122)
                     }
                 } //: VSTACK
@@ -93,7 +95,7 @@ public struct ComparatorListItemView: View {
             .cornerRadius(10)
             .shadow(color: .gray.opacity(0.5), radius: 5, x: .zero, y: .zero)
             if self.item.charger != nil {
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 5) {
                     Button(action: {
                         self.feedbackGenerator.impactOccurred()
                         self.showTariffInfo(self.item.charger)
