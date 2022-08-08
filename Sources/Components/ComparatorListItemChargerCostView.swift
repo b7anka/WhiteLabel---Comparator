@@ -27,7 +27,7 @@ public struct ComparatorListItemChargerCostView: View {
     // MARK: - BODY
     public var body: some View {
         HStack(spacing: .zero) {
-            VStack(alignment: .leading, spacing: 5) {
+            VStack(alignment: .leading, spacing: 10) {
                 Button(action: {
                     self.feedbackGenerator.impactOccurred()
                     self.showTariffInfo(self.item.charger)
@@ -42,8 +42,10 @@ public struct ComparatorListItemChargerCostView: View {
                     .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
                     .background(Color.red)
                 ComparatorListItemInfoRowView(title: UOMS.kWh, value: self.item.totalPower)
+                    .background(Color.red)
                 Text(self.languageManager.comparatorAverageCost)
                     .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
+                    .background(Color.red)
                 ComparatorListItemInfoRowView(title: "€/\(UOMS.kWh)", value: "\(self.item.averageCostPerKwh) €/\(UOMS.kWh) \(self.languageManager.generalPlusVat)")
                 ComparatorListItemInfoRowView(title: "€/\(UOMS.min) \(self.languageManager.generalPlusVat)", value: "\(self.item.averageCostPerMinute) €/\(UOMS.min) \(self.languageManager.generalPlusVat)")
                 
