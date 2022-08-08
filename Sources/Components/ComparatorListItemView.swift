@@ -55,7 +55,6 @@ public struct ComparatorListItemView: View {
                             Image(uiImage: self.image)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(minWidth: 121, idealWidth: 165, maxWidth: 180, minHeight: 122, idealHeight: 122, maxHeight: 122)
                                 .onAppear {
                                     self.getImage()
                                 } //: IMAGE
