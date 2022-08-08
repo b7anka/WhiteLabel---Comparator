@@ -31,32 +31,11 @@ public struct ComparatorListItemView: View {
     
     // MARK: - BODY
     public var body: some View {
-        VStack(spacing: 10) {
-            VStack(spacing: .zero) {
-                ComparatorListItemChargerInfoView(item: self.item, deleteAction: self.deleteAction)
-                if self.item.charger != nil {
-                    VStack(alignment: .leading, spacing: 10) {
-                        Button(action: {
-                            self.feedbackGenerator.impactOccurred()
-                            self.showTariffInfo(self.item.charger)
-                        }) {
-                            HStack(spacing: 5) {
-                                Text(self.languageManager.comparatorTotalCost)
-                                    .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-                                EVIOInformationIconView()
-                            } //: HSTACK
-                        } //: BUTTON
-                        Text("\(self.item.totalCost)€ \(self.languageManager.generalPlusVat)")
-                            .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-                        ComparatorListItemInfoRowView(title: UOMS.kWh, value: self.item.totalPower)
-                        Text(self.languageManager.comparatorAverageCost)
-                            .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-                        ComparatorListItemInfoRowView(title: "€/\(UOMS.kWh)", value: "\(self.item.averageCostPerKwh) €/\(UOMS.kWh) \(self.languageManager.generalPlusVat)")
-                        ComparatorListItemInfoRowView(title: "€/\(UOMS.min) \(self.languageManager.generalPlusVat)", value: "\(self.item.averageCostPerMinute) €/\(UOMS.min) \(self.languageManager.generalPlusVat)")
-                        
-                    } //: VSTACK
-                }
-            } //: VSTACK
-        }
+        VStack(spacing: .zero) {
+            ComparatorListItemChargerInfoView(item: self.item, deleteAction: self.deleteAction)
+            if self.item.charger != nil {
+                ComparatorListItemChargerCostView(item: self.item, showTariffInfo: self.showTariffInfo)
+            }
+        } //: VSTACK
     }
 }
