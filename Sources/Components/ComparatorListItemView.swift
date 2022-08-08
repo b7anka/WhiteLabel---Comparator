@@ -54,7 +54,7 @@ public struct ComparatorListItemView: View {
                         ZStack {
                             Image(uiImage: self.image)
                                 .resizable()
-                                .scaledToFit()()
+                                .scaledToFit()
                                 .frame(minWidth: 121, idealWidth: 165, maxWidth: 180, minHeight: 122, idealHeight: 122, maxHeight: 122)
                                 .onAppear {
                                     self.getImage()
