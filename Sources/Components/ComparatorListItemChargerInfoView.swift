@@ -28,7 +28,7 @@ public struct ComparatorListItemChargerInfoView: View {
     }
     
     public var body: some View {
-        VStack(spacing: 5) {
+        VStack(spacing: 10) {
             VStack(spacing: 5) {
                 if self.item.charger == nil {
                     Text(self.languageManager.comparatorChooseChargingPoint)
