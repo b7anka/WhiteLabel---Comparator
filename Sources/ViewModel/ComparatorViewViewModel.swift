@@ -19,9 +19,11 @@ public final class ComparatorViewViewModel: ObservableObject {
     public var selectedEv: EVIOEv?
     public let goToEvs: (() -> Void)?
     public let columns: [GridItem]
+    public let sliderViewModel: EVIOMultisliderViewModel
     
     // MARK: - INIT
     public init(goToEvs: (() -> Void)?) {
+        self.sliderViewModel = EVIOMultisliderViewModel(value: [0, 100], color: Color.sliderEnabledColor)
         self.goToEvs = goToEvs
         self.languageManager = EVIOLanguageManager.shared.language
         self.selectedEv = nil
