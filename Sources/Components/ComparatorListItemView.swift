@@ -55,7 +55,7 @@ public struct ComparatorListItemView: View {
                             Image(uiImage: self.image)
                                 .resizable()
                                 .scaledToFill()
-                                .clipped(antialiased: true)
+                                .clipShape(Rectangle())
                                 .onAppear {
                                     self.getImage()
                                 } //: IMAGE
