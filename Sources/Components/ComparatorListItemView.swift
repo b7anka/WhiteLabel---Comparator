@@ -55,19 +55,23 @@ public struct ComparatorListItemView: View {
                             Image(uiImage: self.image)
                                 .resizable()
                                 .scaledToFill()
+                                .frame(width: nil, height: 122)
                                 .onAppear {
                                     self.getImage()
                                 } //: IMAGE
-                            HStack(spacing: .zero) {
+                            VStack(spacing: .zero) {
                                 Spacer()
-                                Button(action: {
-                                    self.feedbackGenerator.impactOccurred()
-                                    self.deleteAction(self.item)
-                                }) {
-                                    Image(systemName: .trash)
-                                        .resizable()
-                                        .foregroundColor(.white)
-                                        .frame(width: 15, height: 15)
+                                HStack(spacing: .zero) {
+                                    Spacer()
+                                    Button(action: {
+                                        self.feedbackGenerator.impactOccurred()
+                                        self.deleteAction(self.item)
+                                    }) {
+                                        Image(systemName: .trash)
+                                            .resizable()
+                                            .foregroundColor(.white)
+                                            .frame(width: 15, height: 15)
+                                    }
                                 }
                             } //: HSTACK
                         } //: ZSTACK
