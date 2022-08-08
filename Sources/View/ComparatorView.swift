@@ -31,13 +31,13 @@ public struct ComparatorView: View {
                 } //: BACK BUTTON COMPONENT
                 .padding(.horizontal, 34)
                 ScrollView(.vertical, showsIndicators: false) {
-                    VStack(spacing: .zero) {
+                    VStack(spacing: 20) {
                         EVIOHorizontalEvSelectionView(selectedEv: self.viewModel.selectedEv, resetComponent: self.$viewModel.resetEvComponent, completion: self.viewModel.evSelected, popUpAction: self.viewModel.goToEvs)
                             .padding(.horizontal, 34)
                             .padding(.top, 10)
                         EVIOVerticalDivider()
                             .padding(.horizontal, 34)
-                        LazyVGrid(columns: self.viewModel.columns, spacing: .zero) {
+                        LazyVGrid(columns: self.viewModel.columns, spacing: 10) {
                             ForEach(self.viewModel.chargers) { charger in
                                 ComparatorListItemView(item: charger, showChargerDetailsAction: { _ in}, showTariffInfo: { _ in}, deleteAction: { _ in})
                             } //: LIST
