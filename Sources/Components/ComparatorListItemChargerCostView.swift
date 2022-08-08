@@ -26,26 +26,29 @@ public struct ComparatorListItemChargerCostView: View {
     
     // MARK: - BODY
     public var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Button(action: {
-                self.feedbackGenerator.impactOccurred()
-                self.showTariffInfo(self.item.charger)
-            }) {
-                HStack(spacing: 5) {
-                    Text(self.languageManager.comparatorTotalCost)
-                        .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-                    EVIOInformationIconView()
-                } //: HSTACK
-            } //: BUTTON
-            Text("\(self.item.totalCost)€ \(self.languageManager.generalPlusVat)")
-                .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-            ComparatorListItemInfoRowView(title: UOMS.kWh, value: self.item.totalPower)
-            Text(self.languageManager.comparatorAverageCost)
-                .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-            ComparatorListItemInfoRowView(title: "€/\(UOMS.kWh)", value: "\(self.item.averageCostPerKwh) €/\(UOMS.kWh) \(self.languageManager.generalPlusVat)")
-            ComparatorListItemInfoRowView(title: "€/\(UOMS.min) \(self.languageManager.generalPlusVat)", value: "\(self.item.averageCostPerMinute) €/\(UOMS.min) \(self.languageManager.generalPlusVat)")
-            
-        } //: VSTACK
+        HStack {
+            VStack(alignment: .leading, spacing: 5) {
+                Button(action: {
+                    self.feedbackGenerator.impactOccurred()
+                    self.showTariffInfo(self.item.charger)
+                }) {
+                    HStack(spacing: 5) {
+                        Text(self.languageManager.comparatorTotalCost)
+                            .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
+                        EVIOInformationIconView()
+                    } //: HSTACK
+                } //: BUTTON
+                Text("\(self.item.totalCost)€ \(self.languageManager.generalPlusVat)")
+                    .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
+                ComparatorListItemInfoRowView(title: UOMS.kWh, value: self.item.totalPower)
+                Text(self.languageManager.comparatorAverageCost)
+                    .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
+                ComparatorListItemInfoRowView(title: "€/\(UOMS.kWh)", value: "\(self.item.averageCostPerKwh) €/\(UOMS.kWh) \(self.languageManager.generalPlusVat)")
+                ComparatorListItemInfoRowView(title: "€/\(UOMS.min) \(self.languageManager.generalPlusVat)", value: "\(self.item.averageCostPerMinute) €/\(UOMS.min) \(self.languageManager.generalPlusVat)")
+                
+            } //: VSTACK
+            Spacer()
+        } //: HSTACK
     }
     
 }
