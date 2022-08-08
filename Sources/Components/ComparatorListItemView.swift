@@ -55,7 +55,7 @@ public struct ComparatorListItemView: View {
                             Image(uiImage: self.image)
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: nil, height: 122)
+                                .frame(minWidth: 121, idealWidth: 165, maxWidth: 180, minHeight: 122, idealHeight: 122, maxHeight: 122)
                                 .onAppear {
                                     self.getImage()
                                 } //: IMAGE
@@ -73,6 +73,8 @@ public struct ComparatorListItemView: View {
                                             .frame(width: 15, height: 15)
                                     }
                                 }
+                                .padding(.horizontal, 15)
+                                .padding(.vertical, 15)
                             } //: HSTACK
                         } //: ZSTACK
                         .frame(minWidth: 121, idealWidth: 165, maxWidth: 180, minHeight: 122, idealHeight: 122, maxHeight: 122)
