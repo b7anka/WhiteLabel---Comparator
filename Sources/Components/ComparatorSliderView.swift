@@ -19,16 +19,18 @@ public struct ComparatorSliderView: View {
     }
     
     public var body: some View {
-        HStack(spacing: .zero) {
-            Text(self.languageManager.comparatorChargingDuration)
-                .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-            Spacer()
-        }
-        EVIOMultiSlider(viewModel: self.sliderViewModel)
-        HStack(spacing: .zero) {
-            Text("\(self.sliderViewModel.value.last ?? .zero)")
-                .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-            Spacer()
+        VStack(spacing: 5) {
+            HStack(spacing: .zero) {
+                Text(self.languageManager.comparatorChargingDuration)
+                    .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
+                Spacer()
+            }
+            EVIOMultiSlider(viewModel: self.sliderViewModel)
+            HStack(spacing: .zero) {
+                Text("\(self.sliderViewModel.value.last ?? .zero)")
+                    .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
+                Spacer()
+            }
         }
     }
     
