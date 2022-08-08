@@ -25,10 +25,10 @@ public struct ComparatorSliderView: View {
             Spacer()
         }
         EVIOMultiSlider(viewModel: self.sliderViewModel)
-            .padding(.horizontal, 34)
         HStack(spacing: .zero) {
             Text("\(self.sliderViewModel.value.last ?? .zero)")
                 .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
+            Spacer()
         }
     }
     
