@@ -24,7 +24,7 @@ public struct ComparatorListItemInfoRowView: View {
     
     // MARK: - BODY
     public var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 5) {
             if self.boldText {
                 Text(self.title)
                     .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
