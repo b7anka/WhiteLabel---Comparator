@@ -14,13 +14,15 @@ public struct ComparatorListItemView: View {
     // MARK: - PROPERTIES
     private let item: ComparatorItemModel
     private let languageManager: EVIOLanguage
+    private let selectCharger: (() -> Void)
     private let showChargerDetailsAction: ((EVIOCharger?) -> Void)
     private let showTariffInfo: ((EVIOCharger?) -> Void)
     private let deleteAction: ((ComparatorItemModel) -> Void)
     private let feedbackGenerator: UIImpactFeedbackGenerator
     
     // MARK: - INIT
-    public init(item: ComparatorItemModel, showChargerDetailsAction: @escaping (EVIOCharger?) -> Void, showTariffInfo: @escaping (EVIOCharger?) -> Void, deleteAction: @escaping (ComparatorItemModel) -> Void) {
+    public init(item: ComparatorItemModel, showChargerDetailsAction: @escaping (EVIOCharger?) -> Void, showTariffInfo: @escaping (EVIOCharger?) -> Void, deleteAction: @escaping (ComparatorItemModel) -> Void, selectCharger: @escaping () -> Void) {
+        self.selectCharger = selectCharger
         self.feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         self.showChargerDetailsAction = showChargerDetailsAction
         self.showTariffInfo = showTariffInfo
@@ -32,7 +34,7 @@ public struct ComparatorListItemView: View {
     // MARK: - BODY 
     public var body: some View {
         VStack(spacing: 10) {
-            ComparatorListItemChargerInfoView(item: self.item, deleteAction: self.deleteAction)
+            ComparatorListItemChargerInfoView(item: self.item, selectCharger: self.selectCharger, deleteAction: self.deleteAction)
             if self.item.charger != nil {
                 ComparatorListItemChargerCostView(item: self.item, showTariffInfo: self.showTariffInfo)
             }

@@ -13,6 +13,7 @@ public final class ComparatorViewViewModel: ObservableObject {
     // MARK: - PUBLISHED PROPERTIES
     @Published public var resetEvComponent: Bool
     @Published public var chargers: [ComparatorItemModel]
+    @Published public var showChargerSelection: Bool
     
     // MARK: - PROPERTIEs
     public let languageManager: EVIOLanguage
@@ -23,6 +24,7 @@ public final class ComparatorViewViewModel: ObservableObject {
     
     // MARK: - INIT
     public init(goToEvs: (() -> Void)?) {
+        self.showChargerSelection = false
         self.sliderViewModel = EVIOMultisliderViewModel(value: [0, 100], color: Color.sliderEnabledColor)
         self.goToEvs = goToEvs
         self.languageManager = EVIOLanguageManager.shared.language
@@ -44,5 +46,8 @@ public final class ComparatorViewViewModel: ObservableObject {
         self.selectedEv = ev
     }
     
+    public func goToChargerSelection() {
+        self.showChargerSelection = true
+    }
     
 }

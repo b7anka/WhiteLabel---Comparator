@@ -14,13 +14,15 @@ public struct ComparatorListItemChargerInfoView: View {
     // MARK: - PROPERTIES
     private let item: ComparatorItemModel
     private let languageManager: EVIOLanguage
+    private let selectCharger: (() -> Void)
     private let deleteAction: ((ComparatorItemModel) -> Void)
     private let feedbackGenerator: UIImpactFeedbackGenerator
     
     // MARK: - STATE PROPERTIES
     @State private var image: UIImage = UIImage(named: .placeHolderForChargerDetailsImage)!
     
-    public init(item: ComparatorItemModel, deleteAction: @escaping (ComparatorItemModel) -> Void) {
+    public init(item: ComparatorItemModel, selectCharger: @escaping () -> Void, deleteAction: @escaping (ComparatorItemModel) -> Void) {
+        self.selectCharger = selectCharger
         self.deleteAction = deleteAction
         self.feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         self.item = item
@@ -79,6 +81,10 @@ public struct ComparatorListItemChargerInfoView: View {
                     .frame(maxHeight: 122)
                     .clipShape(Rectangle())
                     .frame(minWidth: 121, idealWidth: 165, maxWidth: 180, minHeight: 122, idealHeight: 122, maxHeight: 122)
+                    .onTapGesture {
+                        self.feedbackGenerator.impactOccurred()
+                        self.selectCharger()
+                    }
             }
         } //: VSTACK
         .background(
