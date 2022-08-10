@@ -7,10 +7,16 @@
 
 import SwiftUI
 
-struct OtherChargersView: View {
+public struct OtherChargersView: View {
     
-    var body: some View {
-        Text("Others Chargers View")
+    @StateObject private var viewModel: OtherChargersViewViewModel
+    
+    public init() {
+        self._viewModel = StateObject(wrappedValue: OtherChargersViewViewModel())
+    }
+    
+    public var body: some View {
+        ComparatorSelectionListView(chargers: self.$viewModel.chargers)
     }
     
 }

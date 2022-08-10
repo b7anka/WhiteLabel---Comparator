@@ -7,8 +7,15 @@
 
 import SwiftUI
 
-struct FavouritesView: View {
-    var body: some View {
-        Text("Favourites View")
+public struct FavouritesView: View {
+    
+    @StateObject private var viewModel: FavouritesViewViewModel
+    
+    public init() {
+        self._viewModel = StateObject(wrappedValue: FavouritesViewViewModel())
+    }
+    
+    public var body: some View {
+        ComparatorSelectionListView(chargers: self.$viewModel.chargers)
     }
 }
