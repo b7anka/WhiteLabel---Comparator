@@ -17,12 +17,12 @@ public struct FavouritesChargerImage: View {
     }
     
     public var body: some View {
-        if let urlString: String = self.fav.charger.defaultImage {
+        if let urlString: String = self.fav.charger?.defaultImage {
             EVIOImage(urlString: urlString, defaultImage: .chargerDefaultIcon, size: CGSize.init(width: 62, height: 62))
                 .clipShape(Circle())
                       
         } else {
-            EVIOImage(urlString: (self.fav.charger.imageContent?.first ?? .empty) ?? .empty, defaultImage: .chargerDefaultIcon, size: CGSize.init(width: 62, height: 62))
+            EVIOImage(urlString: (self.fav.charger?.imageContent?.first ?? .empty) ?? .empty, defaultImage: .chargerDefaultIcon, size: CGSize.init(width: 62, height: 62))
                 .clipShape(Circle())
         }
     }

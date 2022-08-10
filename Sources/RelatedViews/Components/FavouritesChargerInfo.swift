@@ -18,9 +18,9 @@ public struct FavouritesChargerInfo: View {
     
     public var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text(self.fav.charger.name ?? String.noValue)
+            Text(self.fav.charger?.name ?? String.noValue)
                 .modifier(EVIOMainFontModifier())
-            Text(self.fav.charger.address?.toString() ?? String.noValue)
+            Text(self.fav.charger?.address?.toString() ?? String.noValue)
                 .modifier(EVIOChargerAddressModifier())
         }
     }
