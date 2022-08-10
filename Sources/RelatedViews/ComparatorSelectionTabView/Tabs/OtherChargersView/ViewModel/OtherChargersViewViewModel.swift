@@ -21,6 +21,11 @@ public final class OtherChargersViewViewModel: ObservableObject {
     }
     
     private func getOtherChargers() {
+        #if DEBUG
+        guard self.chargers.isEmpty, let url: URL = Bundle.main.url(forResource: "charger", withExtension: .json), let data: Data = try? Data(contentsOf: url), let charger: EVIOCharger = try? JSONDecoder().decode(EVIOCharger.self, from: data) else { return }
+        self.chargers = [ComparatorItemModel(charger: charger)]
+        return
+        #endif
         ComparatorSelectionTabViewViewModel.shared.isLoading = true
         self.webService.getOtherInfastructures { chargers, serverMessage, _ in
             DispatchQueue.main.async { [weak self] in
@@ -28,10 +33,6 @@ public final class OtherChargersViewViewModel: ObservableObject {
                 guard let self = self else { return }
                 if let chargers = chargers {
                     self.chargers = chargers.map({ ComparatorItemModel(charger: $0) })
-                    #if DEBUG
-                    guard self.chargers.isEmpty, let url: URL = Bundle.main.url(forResource: "charger", withExtension: .json), let data: Data = try? Data(contentsOf: url), let charger: EVIOCharger = try? JSONDecoder().decode(EVIOCharger.self, from: data) else { return }
-                    self.chargers = [ComparatorItemModel(charger: charger)]
-                    #endif
                 } else if let serverMessage = serverMessage {
                     EVIOLocalNotificationsManager.shared.showNotificationWithMessageAndTitle(EVIOLanguageManager.shared.getTranslationFor(key: serverMessage.code ?? .empty), title: nil, style: .danger)
                 } else {
