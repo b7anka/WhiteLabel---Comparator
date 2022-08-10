@@ -12,7 +12,11 @@ public final class ComparatorViewViewModel: ObservableObject {
     
     // MARK: - PUBLISHED PROPERTIES
     @Published public var resetEvComponent: Bool
-    @Published public var chargers: [ComparatorItemModel]
+    @Published public var chargers: [ComparatorItemModel] {
+        didSet {
+            self.checkIfDefaultItemShouldAppear()
+        }
+    }
     @Published public var showChargerSelection: Bool
     
     // MARK: - PROPERTIEs
@@ -35,10 +39,6 @@ public final class ComparatorViewViewModel: ObservableObject {
             GridItem(.flexible(), alignment: .top)
         ]
         self.chargers = [ComparatorItemModel.´default´]
-        #if DEBUG
-        guard let url = Bundle.main.url(forResource: "charger", withExtension: .json), let data: Data = try? Data(contentsOf: url), let charger: EVIOCharger = try? JSONDecoder().decode(EVIOCharger.self, from: data) else { return }
-        self.chargers.insert(ComparatorItemModel(charger: charger), at: .zero)
-        #endif
     }
     
     // MARK: - PUBLIC FUNCTIONS
@@ -52,6 +52,16 @@ public final class ComparatorViewViewModel: ObservableObject {
     
     public func deleteCharger(_ item: ComparatorItemModel) {
         self.chargers.removeAll(where: { $0.id == item.id })
+    }
+    
+    private func checkIfDefaultItemShouldAppear() {
+        if self.chargers.count == 4 {
+            self.chargers.removeAll(where: { $0.isDefault })
+        } else {
+            if !self.chargers.contains(ComparatorItemModel.´default´) {
+                self.chargers.append(ComparatorItemModel.´default´)
+            }
+        }
     }
     
 }
