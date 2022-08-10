@@ -25,7 +25,8 @@ public struct FavouritesListItemMainView: View {
             }
             .padding(.horizontal, 10)
             EVIOVerticalDivider()
-                .padding([.horizontal, .vertical], 5)
+                .padding(.horizontal, 5)
+                .padding(.vertical, 10)
         }
     }
     
