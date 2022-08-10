@@ -22,6 +22,7 @@ public struct ComparatorSelectionListView: View {
                     FavouritesListItemView(fav: charger)
                 }
             }
+            .padding(.horizontal, 34)
         }
         .padding(.top, 20)
     }
