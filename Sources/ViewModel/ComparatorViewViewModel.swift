@@ -34,7 +34,7 @@ public final class ComparatorViewViewModel: ObservableObject {
             GridItem(.flexible(), alignment: .top),
             GridItem(.flexible(), alignment: .top)
         ]
-        self.chargers = [ComparatorItemModel.´default´, ComparatorItemModel(charger: nil), ComparatorItemModel(charger: nil), ComparatorItemModel(charger: nil), ComparatorItemModel(charger: nil)]
+        self.chargers = [ComparatorItemModel.´default´]
         #if DEBUG
         guard let url = Bundle.main.url(forResource: "charger", withExtension: .json), let data: Data = try? Data(contentsOf: url), let charger: EVIOCharger = try? JSONDecoder().decode(EVIOCharger.self, from: data) else { return }
         self.chargers.insert(ComparatorItemModel(charger: charger), at: .zero)
