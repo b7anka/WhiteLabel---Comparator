@@ -1,5 +1,5 @@
 //
-//  FavouritesChargerImage.swift
+//  ComparatorSelectionChargerImage.swift
 //  EVIO - WhiteLabel
 //
 //  Created by Tiago Moreira on 12/01/2022.
@@ -8,7 +8,7 @@
 import SwiftUI
 import WhiteLabel___Utils
 
-public struct FavouritesChargerImage: View {
+public struct ComparatorSelectionChargerImage: View {
     
     private let fav: ComparatorItemModel
     

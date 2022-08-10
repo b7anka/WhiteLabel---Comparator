@@ -12,13 +12,21 @@ final public class ComparatorSelectionTabViewViewModel: ObservableObject {
     
     public static let shared: ComparatorSelectionTabViewViewModel = ComparatorSelectionTabViewViewModel()
     
+    @Published public var closeView: Bool
     @Published public var selectedItem: Int
     @Published public var isLoading: Bool
+    @Published public var pageToPresent: ComparatorFullScreenPresentationModel?
     
     public var tabs: [EVIOTabBarItem]
     public let languageManager: EVIOLanguage
+    public var charger: ComparatorItemModel?
+    public var plugChosenCompletion: ((ComparatorItemModel) -> Void)?
     
     public init() {
+        self.closeView = false
+        self.plugChosenCompletion = nil
+        self.charger = nil
+        self.pageToPresent = nil
         self.isLoading = false
         self.selectedItem = .zero
         self.languageManager = EVIOLanguageManager.shared.language

@@ -19,7 +19,7 @@ public struct ComparatorSelectionListView: View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 10) {
                 ForEach(self.chargers) { charger in
-                    FavouritesListItemView(fav: charger)
+                    ComparatorSelectionListItemView(fav: charger)
                 }
             }
             .padding(.horizontal, 34)

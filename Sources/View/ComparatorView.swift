@@ -48,7 +48,7 @@ public struct ComparatorView: View {
                         .padding(.bottom, 20)
                     } //: VSTACK
                 } //: SCROLLVIEW
-                NavigationLink(isActive: self.$viewModel.showChargerSelection, destination: { ComparatorSelectionTabView( )}, label: { EmptyView() })
+                NavigationLink(isActive: self.$viewModel.showChargerSelection, destination: { ComparatorSelectionTabView( comparatorChargers: self.$viewModel.chargers)}, label: { EmptyView() })
                     .isDetailLink(false)
             } //: VSTACK
         } //: ZSTACK

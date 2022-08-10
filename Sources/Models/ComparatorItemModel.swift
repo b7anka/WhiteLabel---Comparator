@@ -8,7 +8,7 @@
 import SwiftUI
 import WhiteLabel___Utils
 
-public final class ComparatorItemModel: ObservableObject, Identifiable {
+public final class ComparatorItemModel: ObservableObject, Identifiable, Equatable {
     
     // MARK: - PUBLISHED PROPERTIES
     @Published public var totalCost: String
@@ -36,6 +36,10 @@ public final class ComparatorItemModel: ObservableObject, Identifiable {
         self.averageCostPerKwh = .noValue
         self.totalPower = .noValue
         self.averageCostPerMinute = .noValue
+    }
+    
+    public static func == (lhs: ComparatorItemModel, rhs: ComparatorItemModel) -> Bool {
+        return lhs.id == rhs.id
     }
     
 }

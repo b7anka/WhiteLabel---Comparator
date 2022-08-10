@@ -1,5 +1,5 @@
 //
-//  FavouritesListItemView.swift
+//  ComparatorSelectionListItemView.swift
 //  EVIO - WhiteLabel
 //
 //  Created by Tiago Moreira on 11/01/2022.
@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 import WhiteLabel___Utils
 
-public struct FavouritesListItemView: View {
+public struct ComparatorSelectionListItemView: View {
     
     private let fav: ComparatorItemModel
     
@@ -19,7 +19,7 @@ public struct FavouritesListItemView: View {
     
     public var body: some View {
         VStack(spacing: .zero) {
-            FavouritesListItemMainView(fav: self.fav)
+            ComparatorSelectionListItemMainView(fav: self.fav)
         }
         .background(Color.secondaryBackground)
         .cornerRadius(10)

@@ -10,9 +10,12 @@ import WhiteLabel___Utils
 
 public struct ComparatorSelectionTabView: View {
     
+    @Environment(\.presentationMode) private var presentationMode
     @StateObject private var viewModel: ComparatorSelectionTabViewViewModel
+    @Binding private var comparatorChargers: [ComparatorItemModel]
     
-    public init() {
+    public init(comparatorChargers: Binding<[ComparatorItemModel]>) {
+        self._comparatorChargers = comparatorChargers
         self._viewModel = StateObject(wrappedValue: ComparatorSelectionTabViewViewModel.shared)
     }
     
@@ -23,7 +26,7 @@ public struct ComparatorSelectionTabView: View {
             EVIOTabBarViewController(selectedTab: self.$viewModel.selectedItem, title: nil, tabs: self.viewModel.tabs, allowSwipeToChangeTabs: false) {
                 switch self.viewModel.selectedItem {
                 case .zero:
-                    MyChargersView()
+                    MyChargersView(comparatorChargers: self.$comparatorChargers)
                 case 1:
                     OtherChargersView()
                 default:
@@ -37,6 +40,9 @@ public struct ComparatorSelectionTabView: View {
         .disabled(self.viewModel.isLoading)
         .navigationTitle(String.empty)
         .navigationBarHidden(true)
+        .onChange(of: self.viewModel.closeView) { _ in
+            self.presentationMode.wrappedValue.dismiss()
+        }
     }
     
 }

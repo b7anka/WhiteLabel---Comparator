@@ -11,13 +11,31 @@ import WhiteLabel___Utils
 public final class MyChargersViewViewModel: ObservableObject {
     
     @Published public var chargers: [ComparatorItemModel]
+    @Published public var selectedCharger: ComparatorItemModel?
     
     private var webService: ComparatorViewWebServiceProtocol
     
     public init(webService: ComparatorViewWebServiceProtocol = ComparatorViewWebService()) {
+        self.selectedCharger = nil
         self.webService = webService
         self.chargers = []
         self.getMyChargers()
+    }
+    
+    func chargerSelected(_ item: ComparatorItemModel) {
+        if item.charger?.plugs?.count ?? .zero > 1 {
+            ComparatorSelectionTabViewViewModel.shared.charger = item
+            UIView.withoutAnimation {
+                ComparatorSelectionTabViewViewModel.shared.pageToPresent = .plugSelectionView
+            }
+            ComparatorSelectionTabViewViewModel.shared.plugChosenCompletion = { charger in
+                self.selectedCharger = item
+                ComparatorSelectionTabViewViewModel.shared.closeView = true
+            }
+        } else {
+            self.selectedCharger = item
+            ComparatorSelectionTabViewViewModel.shared.closeView = true
+        }
     }
     
     private func getMyChargers() {
