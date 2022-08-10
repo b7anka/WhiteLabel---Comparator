@@ -16,7 +16,7 @@ public struct OtherChargersView: View {
     }
     
     public var body: some View {
-        ComparatorSelectionListView(chargers: self.$viewModel.chargers, selectedCharger: {_ in})
+        ComparatorSelectionListView(chargers: self.$viewModel.chargers, selectedCharger: self.viewModel.chargerSelected)
     }
     
 }

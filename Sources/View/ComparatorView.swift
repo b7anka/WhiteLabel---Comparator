@@ -41,7 +41,7 @@ public struct ComparatorView: View {
                             .padding(.horizontal, 34)
                         LazyVGrid(columns: self.viewModel.columns, spacing: 10) {
                             ForEach(self.viewModel.chargers) { charger in
-                                ComparatorListItemView(item: charger, showChargerDetailsAction: { _ in}, showTariffInfo: { _ in}, deleteAction: { _ in}, selectCharger: self.viewModel.goToChargerSelection)
+                                ComparatorListItemView(item: charger, showChargerDetailsAction: { _ in}, showTariffInfo: { _ in}, deleteAction: self.viewModel.deleteCharger, selectCharger: self.viewModel.goToChargerSelection)
                             } //: LIST
                         } //: LAZYVGRID
                         .padding(.horizontal, 34)

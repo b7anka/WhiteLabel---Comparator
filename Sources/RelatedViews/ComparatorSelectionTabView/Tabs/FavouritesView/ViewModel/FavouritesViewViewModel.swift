@@ -20,6 +20,22 @@ public final class FavouritesViewViewModel: ObservableObject {
         self.getFavourites()
     }
     
+    func chargerSelected(_ item: ComparatorItemModel) {
+        if item.charger?.plugs?.count ?? .zero > 1 {
+            ComparatorSelectionTabViewViewModel.shared.charger = item
+            UIView.withoutAnimation {
+                ComparatorSelectionTabViewViewModel.shared.pageToPresent = .plugSelectionView
+            }
+            ComparatorSelectionTabViewViewModel.shared.plugChosenCompletion = { charger in
+                self.selectedCharger = item
+                ComparatorSelectionTabViewViewModel.shared.closeView = true
+            }
+        } else {
+            self.selectedCharger = item
+            ComparatorSelectionTabViewViewModel.shared.closeView = true
+        }
+    }
+    
     private func getFavourites() {
         #if DEBUG
         guard self.chargers.isEmpty, let url: URL = Bundle.main.url(forResource: "charger", withExtension: .json), let data: Data = try? Data(contentsOf: url), let charger: EVIOCharger = try? JSONDecoder().decode(EVIOCharger.self, from: data) else { return }

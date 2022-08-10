@@ -50,4 +50,8 @@ public final class ComparatorViewViewModel: ObservableObject {
         self.showChargerSelection = true
     }
     
+    public func deleteCharger(_ item: ComparatorItemModel) {
+        self.chargers.removeAll(where: { $0.id == item.id })
+    }
+    
 }
