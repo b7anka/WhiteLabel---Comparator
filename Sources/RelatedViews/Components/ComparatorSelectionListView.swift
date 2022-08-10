@@ -10,8 +10,12 @@ import SwiftUI
 public struct ComparatorSelectionListView: View {
     
     @Binding private var chargers: [ComparatorItemModel]
+    private var selectedCharger: ((ComparatorItemModel) -> Void)
+    private let feedbackGenerator: UIImpactFeedbackGenerator
     
-    public init(chargers: Binding<[ComparatorItemModel]>) {
+    public init(chargers: Binding<[ComparatorItemModel]>, selectedCharger: @escaping (ComparatorItemModel) -> Void) {
+        self.selectedCharger = selectedCharger
+        self.feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         self._chargers = chargers
     }
     
@@ -20,6 +24,10 @@ public struct ComparatorSelectionListView: View {
             LazyVStack(spacing: 10) {
                 ForEach(self.chargers) { charger in
                     ComparatorSelectionListItemView(fav: charger)
+                        .onTapGesture {
+                            self.feedbackGenerator.impactOccurred()
+                            self.selectedCharger(charger)
+                        }
                 }
             }
             .padding(.horizontal, 34)
