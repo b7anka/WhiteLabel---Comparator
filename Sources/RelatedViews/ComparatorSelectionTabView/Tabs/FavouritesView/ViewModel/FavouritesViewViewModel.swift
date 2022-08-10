@@ -5,16 +5,18 @@
 //  Created by Tiago Moreira on 09/08/2022.
 //
 
-import Foundation
+import SwiftUI
 import WhiteLabel___Utils
 
 public final class FavouritesViewViewModel: ObservableObject {
     
     @Published public var chargers: [ComparatorItemModel]
+    @Published public var selectedCharger: ComparatorItemModel?
     
     private var webService: ComparatorViewWebServiceProtocol
     
     public init(webService: ComparatorViewWebServiceProtocol = ComparatorViewWebService()) {
+        self.selectedCharger = nil
         self.webService = webService
         self.chargers = []
         self.getFavourites()

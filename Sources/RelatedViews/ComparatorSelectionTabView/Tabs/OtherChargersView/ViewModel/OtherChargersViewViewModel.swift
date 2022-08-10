@@ -11,10 +11,12 @@ import WhiteLabel___Utils
 public final class OtherChargersViewViewModel: ObservableObject {
     
     @Published public var chargers: [ComparatorItemModel]
+    @Published public var selectedCharger: ComparatorItemModel?
     
     private var webService: ComparatorViewWebServiceProtocol
     
     public init(webService: ComparatorViewWebServiceProtocol = ComparatorViewWebService()) {
+        self.selectedCharger = nil
         self.webService = webService
         self.chargers = []
         self.getOtherChargers()

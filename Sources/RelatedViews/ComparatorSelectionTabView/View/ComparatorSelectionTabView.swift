@@ -28,9 +28,9 @@ public struct ComparatorSelectionTabView: View {
                 case .zero:
                     MyChargersView(comparatorChargers: self.$comparatorChargers)
                 case 1:
-                    OtherChargersView()
+                    OtherChargersView(comparatorChargers: self.$comparatorChargers)
                 default:
-                    FavouritesView()
+                    FavouritesView(comparatorChargers: self.$comparatorChargers)
                 }
             }
             if self.viewModel.isLoading {
