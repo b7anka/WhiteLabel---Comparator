@@ -22,6 +22,13 @@ public struct OtherChargersView: View {
             .onChange(of: self.viewModel.selectedCharger) { newValue in
                 guard let charger = newValue else { return }
                 self.comparatorChargers.insert(charger, at: self.comparatorChargers.count-1)
+                if self.comparatorChargers.count == 4 {
+                    self.comparatorChargers.removeAll(where: { $0.isDefault })
+                } else {
+                    if !self.comparatorChargers.contains(ComparatorItemModel.´default´) {
+                        self.comparatorChargers.append(ComparatorItemModel.´default´)
+                    }
+                }
             }
     }
     

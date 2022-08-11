@@ -12,11 +12,7 @@ public final class ComparatorViewViewModel: ObservableObject {
     
     // MARK: - PUBLISHED PROPERTIES
     @Published public var resetEvComponent: Bool
-    @Published public var chargers: [ComparatorItemModel] {
-        didSet {
-            self.checkIfDefaultItemShouldAppear()
-        }
-    }
+    @Published public var chargers: [ComparatorItemModel]
     @Published public var showChargerSelection: Bool
     
     // MARK: - PROPERTIEs
@@ -52,16 +48,6 @@ public final class ComparatorViewViewModel: ObservableObject {
     
     public func deleteCharger(_ item: ComparatorItemModel) {
         self.chargers.removeAll(where: { $0.id == item.id })
-    }
-    
-    private func checkIfDefaultItemShouldAppear() {
-        if self.chargers.count == 4 {
-            self.chargers.removeAll(where: { $0.isDefault })
-        } else {
-            if !self.chargers.contains(ComparatorItemModel.´default´) {
-                self.chargers.append(ComparatorItemModel.´default´)
-            }
-        }
     }
     
 }
