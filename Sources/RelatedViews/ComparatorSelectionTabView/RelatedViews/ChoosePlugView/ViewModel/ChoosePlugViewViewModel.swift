@@ -28,7 +28,7 @@ public final class ChoosePlugViewViewModel: ObservableObject {
     
     public func plugChosen(_ plug: ChoosePlugModel) {
         self.plugs.forEach({
-            if $0 == plug {
+            if $0.id == plug.id {
                 $0.isSelected.toggle()
             } else {
                 $0.isSelected = false
