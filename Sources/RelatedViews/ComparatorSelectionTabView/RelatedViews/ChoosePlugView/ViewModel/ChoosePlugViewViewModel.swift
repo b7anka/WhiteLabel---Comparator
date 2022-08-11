@@ -16,6 +16,7 @@ public final class ChoosePlugViewViewModel: ObservableObject {
     public let languageManager: EVIOLanguage
     
     public init(charger: ComparatorItemModel?) {
+        self.plugs = []
         self.okButtonDisabled = true
         self.charger = charger
         self.languageManager = EVIOLanguageManager.shared.language
