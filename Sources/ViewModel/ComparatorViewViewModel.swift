@@ -48,6 +48,11 @@ public final class ComparatorViewViewModel: ObservableObject {
     
     public func deleteCharger(_ item: ComparatorItemModel) {
         self.chargers.removeAll(where: { $0.id == item.id })
+        if self.chargers.count < .numberOfAllowedComparatorItems {
+            if !self.chargers.contains(ComparatorItemModel.´default´) {
+                self.chargers.append(ComparatorItemModel.´default´)
+            }
+        }
     }
     
 }
