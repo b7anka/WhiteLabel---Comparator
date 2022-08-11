@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WhiteLabel___Utils
 
 public struct ChoosePlugView: View {
     
@@ -16,7 +17,24 @@ public struct ChoosePlugView: View {
     }
     
     public var body: some View {
-        Text("Hello, World!")
+        ZStack {
+            Color.semiTransparent
+                .edgesIgnoringSafeArea(.all)
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color.transparent)
+                .overlay(
+                    VStack(spacing: 10) {
+                        Text("Choose the plug you want to compare")
+                            .modifier(EVIOAlertMessageModifier(color: .primaryTextColor, textAlignment: .center, lineLimit: nil))
+                        ChoosePlugListView(viewModel: self.viewModel)
+                        EVIOMainButton(disabled: self.$viewModel.okButtonDisabled, title: self.viewModel.languageManager.generalOk, action: self.viewModel.okButtonTapped)
+                            .padding(.horizontal, 45)
+                    }
+                        .padding(10)
+                )
+                .padding(.horizontal, 15)
+        }
+        .background(EVIOTransparentBackgroundView())
     }
     
 }

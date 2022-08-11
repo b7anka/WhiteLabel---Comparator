@@ -45,6 +45,9 @@ public struct ComparatorSelectionTabView: View {
             self.viewModel.closeView = false
             self.presentationMode.wrappedValue.dismiss()
         }
+        .fullScreenCover(item: self.$viewModel.pageToPresent, onDismiss: nil) { page in
+            ChoosePlugView(charger: self.viewModel.charger)
+        }
     }
     
 }
