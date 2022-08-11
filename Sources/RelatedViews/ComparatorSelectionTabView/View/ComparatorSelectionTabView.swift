@@ -41,6 +41,8 @@ public struct ComparatorSelectionTabView: View {
         .navigationTitle(String.empty)
         .navigationBarHidden(true)
         .onChange(of: self.viewModel.closeView) { _ in
+            guard self.viewModel.closeView else { return }
+            self.viewModel.closeView = false
             self.presentationMode.wrappedValue.dismiss()
         }
     }
