@@ -48,4 +48,18 @@ public extension ComparatorItemModel {
     
     static let ´default´: ComparatorItemModel = ComparatorItemModel(charger: nil, isDefault: true)
     
+    static func checkIfPlugOrChargerAlreadyExists(listOfChargers: [ComparatorItemModel], chargerToAdd: ComparatorItemModel) -> Bool {
+        if listOfChargers.contains(where: { $0.charger?.chargerId == chargerToAdd.charger?.chargerId }) {
+            for c in listOfChargers where c.charger?.chargerId == chargerToAdd.charger?.chargerId {
+                for p in c.charger?.plugs ?? [] where p.selected {
+                    for plug in chargerToAdd.charger?.plugs ?? [] where plug.selected {
+                        return p.id == plug.id
+                    }
+                }
+            }
+            return false
+        }
+        return false
+    }
+    
 }

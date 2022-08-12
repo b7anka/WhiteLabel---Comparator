@@ -50,10 +50,10 @@ public struct ComparatorSelectionTabView: View {
         }
         .onChange(of: self.viewModel.charger) { newValue in
             guard let charger = newValue else { return }
-            if !self.comparatorChargers.contains(charger) {
+            if !ComparatorItemModel.checkIfPlugOrChargerAlreadyExists(listOfChargers: self.comparatorChargers, chargerToAdd: charger) {
                 self.comparatorChargers.insert(charger, at: self.comparatorChargers.count-1)
             } else {
-                EVIOLocalNotificationsManager.shared.showNotificationWithMessageAndTitle("The charger you selected is already in the list for comparison, please choose another one.", title: nil, style: .danger)
+                EVIOLocalNotificationsManager.shared.showNotificationWithMessageAndTitle(self.viewModel.languageManager.comparatorPlugAlreadyBeingCompared, title: nil, style: .danger)
             }
             if self.comparatorChargers.count > .numberOfAllowedComparatorItems {
                 self.comparatorChargers.removeAll(where: { $0.isDefault })
