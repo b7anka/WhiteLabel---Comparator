@@ -33,7 +33,7 @@ public struct ChoosePlugView: View {
             .background(Color.primaryBackground)
             .cornerRadius(20)
             .padding(.horizontal, 15)
-            .padding(.vertical, UIScreen.main.bounds.height * 0.15)
+            .padding(.vertical, UIScreen.main.bounds.height * 0.05)
         }
         .background(EVIOTransparentBackgroundView())
     }
