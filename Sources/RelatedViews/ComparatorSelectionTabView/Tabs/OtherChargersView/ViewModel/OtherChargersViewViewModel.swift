@@ -14,8 +14,10 @@ public final class OtherChargersViewViewModel: ObservableObject {
     @Published public var selectedCharger: ComparatorItemModel?
     
     private var webService: ComparatorViewWebServiceProtocol
+    public let languageManager: EVIOLanguage
     
     public init(webService: ComparatorViewWebServiceProtocol = ComparatorViewWebService()) {
+        self.languageManager = EVIOLanguageManager.shared.language
         self.selectedCharger = nil
         self.webService = webService
         self.chargers = []
