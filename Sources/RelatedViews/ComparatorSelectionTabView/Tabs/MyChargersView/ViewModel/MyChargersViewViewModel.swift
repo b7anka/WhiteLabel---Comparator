@@ -41,7 +41,7 @@ public final class MyChargersViewViewModel: ObservableObject {
     private func getMyChargers() {
         #if DEBUG
         guard self.chargers.isEmpty, let url: URL = Bundle.main.url(forResource: "my_chargers", withExtension: .json), let data: Data = try? Data(contentsOf: url), let chargers: [EVIOCharger] = try? JSONDecoder().decode([EVIOCharger].self, from: data) else { return }
-        self.chargers = chargers
+        self.chargers = chargers.map({ ComparatorItemModel(charger: $0) })
         return
         #endif
         ComparatorSelectionTabViewViewModel.shared.isLoading = true
