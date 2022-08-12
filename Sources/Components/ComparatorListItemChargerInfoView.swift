@@ -33,16 +33,22 @@ public struct ComparatorListItemChargerInfoView: View {
         VStack(spacing: .zero) {
             VStack(spacing: 5) {
                 if self.item.charger == nil {
-                    Text(self.languageManager.comparatorChooseChargingPoint)
-                        .modifier(EVIOReferencePlaceAddressModifier(color: .secondaryTextColor.opacity(0.5), lineLimit: 1, textAlignment: .leading))
+                    HStack(spacing: .zero) {
+                        Text(self.languageManager.comparatorChooseChargingPoint)
+                            .modifier(EVIOReferencePlaceAddressModifier(color: .secondaryTextColor.opacity(0.5), lineLimit: 1, textAlignment: .leading))
+                        Spacer()
+                    }
                 } else {
                     HStack(spacing: .zero) {
                         EVIORating(rating: self.item.charger?.rating ?? .zero, starSize: .chargerSummaryAndDetailsRatingBarStarSize, starMargin: .chargerSummaryAndDetailsRatingBarStarMarging, isDisabled: true, size: .ratingStarSizeForChargerSummary, didUpdateRating: {_ in})
                         Spacer()
                     }
                 }
-                Text(self.item.charger?.name ?? self.languageManager.comparatorChargingPoint)
-                    .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
+                HStack(spacing: .zero) {
+                    Text(self.item.charger?.name ?? self.languageManager.comparatorChargingPoint)
+                        .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
+                    Spacer()
+                }
             } //: VSTACK
             .padding(5)
             if self.item.charger != nil {

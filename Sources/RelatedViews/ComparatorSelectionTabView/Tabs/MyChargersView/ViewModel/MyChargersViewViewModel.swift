@@ -30,6 +30,7 @@ public final class MyChargersViewViewModel: ObservableObject {
             }
         } else {
             self.selectedCharger = item
+            self.selectedCharger?.charger?.plugs?.first?.selected = true
             ComparatorSelectionTabViewViewModel.shared.closeView = true
         }
     }
