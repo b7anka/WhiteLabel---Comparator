@@ -26,7 +26,7 @@ struct ChoosePlugListItemView: View {
             self.plugChosenCompletion(self.plug)
         }) {
             VStack(spacing: 5) {
-                Image(uiImage: EVIOConnectorTypeHelper.shared.imageNameFor(plug: self.plug.plug, selected: self.plug.isSelected, backgroundOn: true, summary: false))
+                Image(uiImage: UIImage(named: EVIOConnectorTypeHelper.shared.imageNameFor(plug: self.plug.plug, selected: self.plug.isSelected, backgroundOn: true, summary: false))!)
                     .resizable()
                     .scaledToFit()
                     .frame(width: nil, height: 74)
