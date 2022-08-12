@@ -25,7 +25,6 @@ public struct ChoosePlugListView: View {
                 }
                 .frame(width: geo.size.width)
             }
-            .background(Color.red)
         }
     }
     

@@ -35,10 +35,18 @@ public final class ChoosePlugViewViewModel: ObservableObject {
                 $0.isSelected = false
             }
         })
+        self.checkIfOkbuttonShouldBeEnabled()
     }
     
     private func parsePlugs() {
         self.plugs = (self.charger?.charger?.plugs ?? []).map({ ChoosePlugModel(plug: $0) })
+    }
+    
+    private func checkIfOkbuttonShouldBeEnabled() {
+        withAnimation {
+            let selectedPlug: ComparatorItemModel? = self.plugs.first(where: { $0.isSelected })
+            self.okButtonDisabled = selectedPlug == nil
+        }
     }
     
 }
