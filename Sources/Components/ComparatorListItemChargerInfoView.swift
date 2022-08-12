@@ -51,7 +51,7 @@ public struct ComparatorListItemChargerInfoView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(maxHeight: 122)
-                        .clipped()
+                        .clipShape(Rectangle())
                         .onAppear {
                             self.getImage()
                         } //: IMAGE
@@ -73,6 +73,7 @@ public struct ComparatorListItemChargerInfoView: View {
                     } //: HSTACK
                 } //: ZSTACK
                 .frame(minWidth: 121, idealWidth: 165, maxWidth: 180, minHeight: 122, idealHeight: 122, maxHeight: 122)
+                .clipped()
             } else {
                 Image(.comparatorAddChargerImage)
                     .resizable()
