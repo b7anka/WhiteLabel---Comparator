@@ -12,7 +12,7 @@ public struct ChoosePlugView: View {
     
     @StateObject private var viewModel: ChoosePlugViewViewModel
     
-    public init(charger: ComparatorItemModel?, plugSelected: ((ComparatorItemModel) -> Void)) {
+    public init(charger: ComparatorItemModel?, plugSelected: @escaping (ComparatorItemModel) -> Void) {
         self._viewModel = StateObject(wrappedValue: ChoosePlugViewViewModel(charger: charger, plugSelected: plugSelected))
     }
     
