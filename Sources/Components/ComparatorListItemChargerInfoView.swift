@@ -46,11 +46,11 @@ public struct ComparatorListItemChargerInfoView: View {
             } //: VSTACK
             .padding(5)
             if self.item.charger != nil {
-                ZStack(alignment: .topLeading) {
+                ZStack {
                     Image(uiImage: self.image)
                         .resizable()
                         .scaledToFill()
-                        .frame(maxHeight: 122)
+                        .frame(minWidth: 121, idealWidth: 165, maxWidth: 180, minHeight: 122, idealHeight: 122, maxHeight: 122)
                         .clipShape(Rectangle())
                         .onAppear {
                             self.getImage()
@@ -64,7 +64,7 @@ public struct ComparatorListItemChargerInfoView: View {
                             }) {
                                 Image(systemName: .trash)
                                     .resizable()
-                                    .foregroundColor(.red)
+                                    .foregroundColor(.white)
                                     .frame(width: 15, height: 15)
                             }
                         }
@@ -73,7 +73,6 @@ public struct ComparatorListItemChargerInfoView: View {
                     } //: HSTACK
                 } //: ZSTACK
                 .frame(minWidth: 121, idealWidth: 165, maxWidth: 180, minHeight: 122, idealHeight: 122, maxHeight: 122)
-                .clipped()
             } else {
                 Image(.comparatorAddChargerImage)
                     .resizable()
