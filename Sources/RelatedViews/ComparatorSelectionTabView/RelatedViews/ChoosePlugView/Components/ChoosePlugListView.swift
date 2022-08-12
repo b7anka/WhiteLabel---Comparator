@@ -16,8 +16,8 @@ public struct ChoosePlugListView: View {
     }
     
     public var body: some View {
-        GeometryReader { geo in
-            ScrollView(.horizontal, showsIndicators: false) {
+        ScrollView(.horizontal, showsIndicators: false) {
+            GeometryReader { geo in
                 LazyHStack(spacing: 10) {
                     ForEach(self.viewModel.plugs) { plug in
                         ChoosePlugListItemView(plug: plug, plugChosenCompletion: self.viewModel.plugChosen)
