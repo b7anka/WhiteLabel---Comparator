@@ -48,7 +48,7 @@ public struct ComparatorSelectionTabView: View {
         .fullScreenCover(item: self.$viewModel.pageToPresent, onDismiss: nil) { page in
             ChoosePlugView(charger: self.viewModel.charger, plugSelected: self.viewModel.plugSelectedFor)
         }
-        .onChange(of: self.viewModel.charger) { newValue in
+        .onChange(of: self.viewModel.chargerSelected) { newValue in
             guard let charger = newValue else { return }
             if !ComparatorItemModel.checkIfPlugOrChargerAlreadyExists(listOfChargers: self.comparatorChargers, chargerToAdd: charger) {
                 self.comparatorChargers.insert(charger, at: self.comparatorChargers.count-1)
