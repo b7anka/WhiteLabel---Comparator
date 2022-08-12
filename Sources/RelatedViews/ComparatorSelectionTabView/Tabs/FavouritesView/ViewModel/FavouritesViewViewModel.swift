@@ -28,10 +28,6 @@ public final class FavouritesViewViewModel: ObservableObject {
             UIView.withoutAnimation {
                 ComparatorSelectionTabViewViewModel.shared.pageToPresent = .plugSelectionView
             }
-            ComparatorSelectionTabViewViewModel.shared.plugChosenCompletion = { charger in
-                self.selectedCharger = item
-                ComparatorSelectionTabViewViewModel.shared.closeView = true
-            }
         } else {
             self.selectedCharger = item
             ComparatorSelectionTabViewViewModel.shared.closeView = true

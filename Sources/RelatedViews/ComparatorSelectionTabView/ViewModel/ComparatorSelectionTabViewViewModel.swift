@@ -21,12 +21,10 @@ final public class ComparatorSelectionTabViewViewModel: ObservableObject {
     public var tabs: [EVIOTabBarItem]
     public let languageManager: EVIOLanguage
     public var charger: ComparatorItemModel?
-    public var plugChosenCompletion: ((ComparatorItemModel) -> Void)?
     
     public init() {
         self.chargerSelected = nil
         self.closeView = false
-        self.plugChosenCompletion = nil
         self.charger = nil
         self.pageToPresent = nil
         self.isLoading = false
