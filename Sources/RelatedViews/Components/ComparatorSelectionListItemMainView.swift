@@ -24,6 +24,7 @@ public struct ComparatorSelectionListItemMainView: View {
                 Spacer()
             }
             .padding(.horizontal, 10)
+            .padding(.top, 10)
             EVIOVerticalDivider()
                 .padding(.horizontal, 5)
                 .padding(.vertical, 10)
