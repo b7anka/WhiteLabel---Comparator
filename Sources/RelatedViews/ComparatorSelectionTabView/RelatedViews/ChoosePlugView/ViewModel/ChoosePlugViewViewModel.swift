@@ -44,7 +44,7 @@ public final class ChoosePlugViewViewModel: ObservableObject {
     
     private func checkIfOkbuttonShouldBeEnabled() {
         withAnimation {
-            let selectedPlug: ComparatorItemModel? = self.plugs.first(where: { $0.isSelected })
+            let selectedPlug: ChoosePlugModel? = self.plugs.first(where: { $0.isSelected })
             self.okButtonDisabled = selectedPlug == nil
         }
     }
