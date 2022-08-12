@@ -30,7 +30,7 @@ public final class ChoosePlugViewViewModel: ObservableObject {
             return
         }
         selectedPlug.selected = true
-        charger.charger?.plugs[index] = selectedPlug
+        charger.charger?.plugs?[index] = selectedPlug
         self.plugSelected(charger)
         ComparatorSelectionTabViewViewModel.shared.pageToPresent = nil
         ComparatorSelectionTabViewViewModel.shared.closeView = true
