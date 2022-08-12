@@ -23,9 +23,8 @@ public struct ChoosePlugListView: View {
                         ChoosePlugListItemView(plug: plug, plugChosenCompletion: self.viewModel.plugChosen)
                     }
                 }
-                .padding(.horizontal, 10)
+                .frame(width: geo.size.width)
             }
-            .frame(width: geo.size.width, height: 100)
             .background(Color.red)
         }
     }
