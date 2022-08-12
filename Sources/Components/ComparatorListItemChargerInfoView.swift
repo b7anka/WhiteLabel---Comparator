@@ -65,7 +65,7 @@ public struct ComparatorListItemChargerInfoView: View {
                             }) {
                                 Image(systemName: .trash)
                                     .resizable()
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.red)
                                     .frame(width: 15, height: 15)
                             }
                         }
