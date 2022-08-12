@@ -16,6 +16,7 @@ final public class ComparatorSelectionTabViewViewModel: ObservableObject {
     @Published public var selectedItem: Int
     @Published public var isLoading: Bool
     @Published public var pageToPresent: ComparatorFullScreenPresentationModel?
+    @Published public var chargerSelected: ComparatorItemModel?
     
     public var tabs: [EVIOTabBarItem]
     public let languageManager: EVIOLanguage
@@ -23,6 +24,7 @@ final public class ComparatorSelectionTabViewViewModel: ObservableObject {
     public var plugChosenCompletion: ((ComparatorItemModel) -> Void)?
     
     public init() {
+        self.chargerSelected = nil
         self.closeView = false
         self.plugChosenCompletion = nil
         self.charger = nil
@@ -35,6 +37,10 @@ final public class ComparatorSelectionTabViewViewModel: ObservableObject {
             EVIOTabBarItem(title: self.languageManager.comparatorOtherChargers),
             EVIOTabBarItem(title: self.languageManager.comparatorFavourites)
         ]
+    }
+    
+    public func plugSelectedFor(_ item: ComparatorItemModel) {
+        self.chargerSelected = item
     }
     
 }

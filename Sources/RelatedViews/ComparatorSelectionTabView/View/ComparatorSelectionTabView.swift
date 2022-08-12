@@ -46,7 +46,14 @@ public struct ComparatorSelectionTabView: View {
             self.presentationMode.wrappedValue.dismiss()
         }
         .fullScreenCover(item: self.$viewModel.pageToPresent, onDismiss: nil) { page in
-            ChoosePlugView(charger: self.viewModel.charger)
+            ChoosePlugView(charger: self.viewModel.charger, plugSelected: self.viewModel.plugSelectedFor)
+        }
+        .onChange(of: self.viewModel.charger) { newValue in
+            guard let charger = newValue else { return }
+            self.comparatorChargers.insert(charger, at: self.comparatorChargers.count-1)
+            if self.comparatorChargers.count > .numberOfAllowedComparatorItems {
+                self.comparatorChargers.removeAll(where: { $0.isDefault })
+            }
         }
     }
     

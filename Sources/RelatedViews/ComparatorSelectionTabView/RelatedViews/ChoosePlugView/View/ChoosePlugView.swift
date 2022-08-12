@@ -12,8 +12,8 @@ public struct ChoosePlugView: View {
     
     @StateObject private var viewModel: ChoosePlugViewViewModel
     
-    public init(charger: ComparatorItemModel?) {
-        self._viewModel = StateObject(wrappedValue: ChoosePlugViewViewModel(charger: charger))
+    public init(charger: ComparatorItemModel?, plugSelected: ((ComparatorItemModel) -> Void)) {
+        self._viewModel = StateObject(wrappedValue: ChoosePlugViewViewModel(charger: charger, plugSelected: plugSelected))
     }
     
     public var body: some View {
