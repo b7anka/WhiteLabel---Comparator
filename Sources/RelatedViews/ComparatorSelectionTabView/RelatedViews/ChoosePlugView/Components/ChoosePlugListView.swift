@@ -17,16 +17,19 @@ public struct ChoosePlugListView: View {
     
     public var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(spacing: 10) {
+            VStack(spacing: .zero) {
                 GeometryReader { geo in
-                    ForEach(self.viewModel.plugs) { plug in
-                        ChoosePlugListItemView(plug: plug, plugChosenCompletion: self.viewModel.plugChosen)
+                    LazyHStack(spacing: 10) {
+                        ForEach(self.viewModel.plugs) { plug in
+                            ChoosePlugListItemView(plug: plug, plugChosenCompletion: self.viewModel.plugChosen)
+                        }
                     }
                     .frame(width: geo.size.width, height: 100)
                 }
             }
             .padding(.horizontal)
         }
+        .background(Color.red)
     }
     
 }
