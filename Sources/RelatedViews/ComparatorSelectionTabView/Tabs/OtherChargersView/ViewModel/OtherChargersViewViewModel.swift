@@ -40,7 +40,7 @@ public final class OtherChargersViewViewModel: ObservableObject {
     
     private func getOtherChargers() {
         #if DEBUG
-        guard self.chargers.isEmpty, let url: URL = Bundle.main.url(forResource: "other_chargers", withExtension: .json), let data: Data = try? Data(contentsOf: url), let chargers: [EVIOInfrastructure] = try? JSONDecoder().decode([EVIOInfrastructure].self, from: data) else { return }
+        guard self.chargers.isEmpty, let url: URL = Bundle.main.url(forResource: "other_chargers", withExtension: .json), let data: Data = try? Data(contentsOf: url), let infras: [EVIOInfrastructure] = try? JSONDecoder().decode([EVIOInfrastructure].self, from: data) else { return }
         var chargers = [EVIOCharger]()
         for inf in infras where inf.listChargers != nil && !inf.listChargers!.isEmpty {
             chargers.append(contentsOf: inf.listChargers ?? [])
