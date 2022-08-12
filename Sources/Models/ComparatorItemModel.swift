@@ -53,7 +53,9 @@ public extension ComparatorItemModel {
             for c in listOfChargers where c.charger?.id == chargerToAdd.charger?.id {
                 for p in c.charger?.plugs ?? [] where p.selected {
                     for plug in chargerToAdd.charger?.plugs ?? [] where plug.selected {
-                        return p.id == plug.id
+                        if p.id == plug.id {
+                            return true
+                        }
                     }
                 }
             }
