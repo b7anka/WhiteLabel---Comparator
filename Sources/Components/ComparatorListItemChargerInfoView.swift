@@ -51,7 +51,7 @@ public struct ComparatorListItemChargerInfoView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(maxHeight: 122)
-                        .clipped(antialiased: true)
+                        .clipped()
                         .onAppear {
                             self.getImage()
                         } //: IMAGE
