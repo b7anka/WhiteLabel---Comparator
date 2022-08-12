@@ -46,7 +46,7 @@ public struct ComparatorListItemChargerInfoView: View {
             } //: VSTACK
             .padding(5)
             if self.item.charger != nil {
-                ZStack {
+                ZStack(alignment: .topLeading) {
                     Image(uiImage: self.image)
                         .resizable()
                         .scaledToFill()
@@ -58,7 +58,6 @@ public struct ComparatorListItemChargerInfoView: View {
                     VStack(spacing: .zero) {
                         Spacer()
                         HStack(spacing: .zero) {
-                            Spacer()
                             Button(action: {
                                 self.feedbackGenerator.impactOccurred()
                                 self.deleteAction(self.item)
