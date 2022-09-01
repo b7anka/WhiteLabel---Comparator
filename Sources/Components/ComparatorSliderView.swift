@@ -10,10 +10,12 @@ import WhiteLabel___Utils
 
 public struct ComparatorSliderView: View {
     
+    @Binding private var duration: String
     @ObservedObject private var sliderViewModel: EVIOMultisliderViewModel
     private let languageManager: EVIOLanguage
     
-    public init(sliderViewModel: EVIOMultisliderViewModel) {
+    public init(duration: Binding<String>, sliderViewModel: EVIOMultisliderViewModel) {
+        self._duration = duration
         self._sliderViewModel = ObservedObject(wrappedValue: sliderViewModel)
         self.languageManager = EVIOLanguageManager.shared.language
     }
@@ -27,7 +29,7 @@ public struct ComparatorSliderView: View {
             }
             EVIOMultiSlider(viewModel: self.sliderViewModel)
             HStack(spacing: .zero) {
-                Text("\(self.sliderViewModel.value.last ?? .zero)")
+                Text(self.duration)
                     .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
                 Spacer()
             }

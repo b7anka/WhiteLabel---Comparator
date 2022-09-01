@@ -156,10 +156,10 @@
     {
       "identity" : "swiftlocation",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/malcommac/SwiftLocation",
+      "location" : "https://github.com/b7anka/SwiftLocation",
       "state" : {
-        "revision" : "f8ec8e97095eb3a5312370ad94b921768217625f",
-        "version" : "5.1.0"
+        "revision" : "d038e2f475514db3fa065b58c8e59bbddb89c427",
+        "version" : "5.1.1"
       }
     },
     {
@@ -168,7 +168,7 @@
       "location" : "https://github.com/b7anka/WhiteLabel---Utils",
       "state" : {
         "branch" : "main",
-        "revision" : "f383596f93fd2ebacfda8e725da973bc922c04e8"
+        "revision" : "2fc3920133af4d8ca66ca5154c187ebf0723e867"
       }
     }
   ],
