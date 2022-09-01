@@ -76,9 +76,9 @@ public final class ComparatorViewViewModel: ObservableObject {
         item.totalCost = String(format: "%.\((charger.isMobie ? estimateCost.estimatedCostForMobie?.priceWithTaxesButNoVat ?? .zero : estimateCost.mainCost).numberOfDecimalPlaces(maxPlaces: 2))f€", locale: Locale.current, charger.isMobie ? estimateCost.estimatedCostForMobie?.priceWithTaxesButNoVat ?? .zero : estimateCost.mainCost) + " \(self.languageManager.generalPlusVat)"
         item.totalPower = String(format: "%.\(estimateCost.consumption.numberOfDecimalPlaces(maxPlaces: 2))f %@", locale: Locale.current, estimateCost.consumption, self.languageManager.chargerDetailsKWh)
         let pricePerKwh = (charger.isMobie ? estimateCost.estimatedCostForMobie?.priceWithTaxesButNoVat ?? .zero : estimateCost.mainCost) / estimateCost.consumption
-        item.averageCostPerKwh = String(format: "%.\(pricePerKwh.numberOfDecimalPlaces(maxPlaces: 4))f %@", locale: Locale.current, pricePerKwh, self.languageManager.generalPlusVat)
+        item.averageCostPerKwh = String(format: "%.\(pricePerKwh.numberOfDecimalPlaces(maxPlaces: 4))f€ %@", locale: Locale.current, pricePerKwh, self.languageManager.generalPlusVat)
         let pricePerMin = (charger.isMobie ? estimateCost.estimatedCostForMobie?.priceWithTaxesButNoVat ?? .zero : estimateCost.mainCost) / Double(time)
-        item.averageCostPerMinute = String(format: "%.\(pricePerMin.numberOfDecimalPlaces(maxPlaces: 4))f %@", pricePerMin, self.languageManager.generalPlusVat)
+        item.averageCostPerMinute = String(format: "%.\(pricePerMin.numberOfDecimalPlaces(maxPlaces: 4))f€ %@", locale: Locale.current, pricePerMin, self.languageManager.generalPlusVat)
         self.chargingTime = Int(timeTo)
         self.sliderDuration = String(format: "%@", TimeInterval(timeTo.rounded(.up)).timeAsString(showDays: false, showSeconds: false))
     }
