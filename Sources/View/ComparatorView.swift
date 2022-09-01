@@ -37,7 +37,7 @@ public struct ComparatorView: View {
                             .padding(.top, 10)
                         EVIOVerticalDivider()
                             .padding(.horizontal, 34)
-                        ComparatorSliderView(duration: self.$viewModel.sliderDuration, sliderViewModel: self.viewModel.sliderViewModel)
+                        ComparatorSliderView(duration: self.$viewModel.sliderDuration, sliderViewModel: self.viewModel.sliderViewModel, onChange: self.viewModel.sliderDidChange)
                             .padding(.horizontal, 34)
                         ComparatorListView(viewModel: self.viewModel, chargers: self.$viewModel.chargers)
                     } //: VSTACK
