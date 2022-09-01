@@ -14,7 +14,7 @@ public final class ComparatorViewViewModel: ObservableObject {
     @Published public var resetEvComponent: Bool
     @Published public var chargers: [ComparatorItemModel] {
         didSet {
-            
+            self.updateChargersValues()
         }
     }
     @Published public var showChargerSelection: Bool
