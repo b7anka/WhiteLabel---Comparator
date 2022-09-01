@@ -43,7 +43,7 @@ public struct ComparatorListItemChargerCostView: View {
                 ComparatorListItemInfoRowView(title: UOMS.kWh, value: self.item.totalPower)
                 Text(self.languageManager.comparatorAverageCost)
                     .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
-                ComparatorListItemInfoRowView(title: "€/\(UOMS.kWh) \(self.languageManager.generalPlusVat)", value: "\(self.item.averageCostPerKwh) \(self.languageManager.generalPlusVat)")
+                ComparatorListItemInfoRowView(title: "€/\(UOMS.kWh) \(self.languageManager.generalPlusVat)", value: self.item.averageCostPerKwh)
                 ComparatorListItemInfoRowView(title: "€/\(UOMS.min) \(self.languageManager.generalPlusVat)", value: self.item.averageCostPerMinute)
                 
             } //: VSTACK

@@ -7,17 +7,20 @@
 
 import SwiftUI
 import WhiteLabel___Utils
+import MultiSlider
 
 public struct ComparatorSliderView: View {
     
     @Binding private var duration: String
     @ObservedObject private var sliderViewModel: EVIOMultisliderViewModel
     private let languageManager: EVIOLanguage
+    private let onChange: ((MultiSlider) -> Void)?
     
-    public init(duration: Binding<String>, sliderViewModel: EVIOMultisliderViewModel) {
+    public init(duration: Binding<String>, sliderViewModel: EVIOMultisliderViewModel, onChange: ((MultiSlider) -> Void)?) {
         self._duration = duration
         self._sliderViewModel = ObservedObject(wrappedValue: sliderViewModel)
         self.languageManager = EVIOLanguageManager.shared.language
+        self.onChange = onChange
     }
     
     public var body: some View {
@@ -27,7 +30,7 @@ public struct ComparatorSliderView: View {
                     .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))
                 Spacer()
             }
-            EVIOMultiSlider(viewModel: self.sliderViewModel)
+            EVIOMultiSlider(viewModel: self.sliderViewModel, onChange: self.onChange)
             HStack(spacing: .zero) {
                 Text(self.duration)
                     .modifier(EvioAvailabilityTitleFontModifier(color: .primaryTextColor, lineLimit: 1, textAlignment: .leading))

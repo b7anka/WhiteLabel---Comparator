@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WhiteLabel___Utils
+import MultiSlider
 
 public final class ComparatorViewViewModel: ObservableObject {
     
@@ -84,6 +85,10 @@ public final class ComparatorViewViewModel: ObservableObject {
     }
     
     // MARK: - PUBLIC FUNCTIONS
+    public func sliderDidChange(_ slider: MultiSlider) {
+        self.updateChargersValues()
+    }
+    
     public func evSelected(_ ev: EVIOEv?) {
         self.selectedEv = ev
     }
