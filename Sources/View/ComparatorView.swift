@@ -39,13 +39,7 @@ public struct ComparatorView: View {
                             .padding(.horizontal, 34)
                         ComparatorSliderView(duration: self.$viewModel.sliderDuration, sliderViewModel: self.viewModel.sliderViewModel)
                             .padding(.horizontal, 34)
-                        LazyVGrid(columns: self.viewModel.columns, spacing: 10) {
-                            ForEach(self.viewModel.chargers) { charger in
-                                ComparatorListItemView(item: charger, showChargerDetailsAction: { _ in}, showTariffInfo: { _ in}, deleteAction: self.viewModel.deleteCharger, selectCharger: self.viewModel.goToChargerSelection)
-                            } //: LIST
-                        } //: LAZYVGRID
-                        .padding(.horizontal, 34)
-                        .padding(.bottom, 20)
+                        ComparatorListView(viewModel: self.viewModel, chargers: self.$viewModel.chargers)
                     } //: VSTACK
                 } //: SCROLLVIEW
                 NavigationLink(isActive: self.$viewModel.showChargerSelection, destination: { ComparatorSelectionTabView( comparatorChargers: self.$viewModel.chargers)}, label: { EmptyView() })

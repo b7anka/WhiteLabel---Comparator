@@ -12,7 +12,7 @@ import Kingfisher
 public struct ComparatorListItemView: View {
     
     // MARK: - PROPERTIES
-    private let item: ComparatorItemModel
+    @ObservedObject private var item: ComparatorItemModel
     private let languageManager: EVIOLanguage
     private let selectCharger: (() -> Void)
     private let showChargerDetailsAction: ((EVIOCharger?) -> Void)
@@ -22,12 +22,12 @@ public struct ComparatorListItemView: View {
     
     // MARK: - INIT
     public init(item: ComparatorItemModel, showChargerDetailsAction: @escaping (EVIOCharger?) -> Void, showTariffInfo: @escaping (EVIOCharger?) -> Void, deleteAction: @escaping (ComparatorItemModel) -> Void, selectCharger: @escaping () -> Void) {
+        self._item = ObservedObject(wrappedValue: item)
         self.selectCharger = selectCharger
         self.feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         self.showChargerDetailsAction = showChargerDetailsAction
         self.showTariffInfo = showTariffInfo
         self.deleteAction = deleteAction
-        self.item = item
         self.languageManager = EVIOLanguageManager.shared.language
     }
     
