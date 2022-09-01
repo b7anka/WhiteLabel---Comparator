@@ -37,7 +37,7 @@ public struct ComparatorView: View {
                             .padding(.top, 10)
                         EVIOVerticalDivider()
                             .padding(.horizontal, 34)
-                        ComparatorSliderView(sliderViewModel: self.viewModel.sliderViewModel)
+                        ComparatorSliderView(duration: self.$viewModel.sliderDuration, sliderViewModel: self.viewModel.sliderViewModel)
                             .padding(.horizontal, 34)
                         LazyVGrid(columns: self.viewModel.columns, spacing: 10) {
                             ForEach(self.viewModel.chargers) { charger in
