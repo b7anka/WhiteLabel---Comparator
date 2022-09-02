@@ -86,7 +86,9 @@ public final class ComparatorViewViewModel: ObservableObject {
     
     // MARK: - PUBLIC FUNCTIONS
     public func sliderDidChange(_ slider: MultiSlider) {
-        self.updateChargersValues()
+        for c in self.chargers where ((c.charger?.plugs?.first(where: { $0.selected })) != nil) {
+            self.calculateValues(value: slider.value.last ?? .zero, item: c)
+        }
     }
     
     public func evSelected(_ ev: EVIOEv?) {
